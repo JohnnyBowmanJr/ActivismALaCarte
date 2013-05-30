@@ -1,9 +1,11 @@
 require 'machinist/active_record'
 
-# Add your blueprints here.
-#
-# e.g.
-#   Post.blueprint do
-#     title { "Post #{sn}" }
-#     body  { "Lorem ipsum..." }
-#   end
+Organizer.blueprint do
+  name { Faker::Company.name }
+end
+
+Campaign.blueprint do
+  title { Faker::Company.catch_phrase }
+  description { Faker::Lorem.paragraphs(2).join(" ")}
+end
+
