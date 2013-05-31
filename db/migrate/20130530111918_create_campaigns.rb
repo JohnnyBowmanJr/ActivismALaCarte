@@ -4,7 +4,7 @@ class CreateCampaigns < ActiveRecord::Migration
       t.string :title
       t.string :image_url
       t.text :description
-      t.integer :organizer_id
+      t.integer :user_id
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
 class Call < ActiveRecord::Base
-  attr_accessible :campaign_id, :user_id
+  attr_accessible :campaign_id, :caller_id
 
-  belongs_to :user_id
-  belongs_to :campaign_id
+  belongs_to :caller, :class_name => 'User', :foreign_key => :caller_id
+  belongs_to :participated_campaign, :class_name => "Campaign"
 end

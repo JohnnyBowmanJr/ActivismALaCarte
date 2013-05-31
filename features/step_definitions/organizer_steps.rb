@@ -1,41 +1,46 @@
 Given(/^I am on the sign up page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/users/sign_up'
 end
 
 When(/^I sign up as a user with email "(.*?)"$/) do |email|
-  pending # express the regexp above with the code you wish you had
+  fill_in 'Email', :with => email 
+  fill_in 'Password', :with => "password"
+  fill_in 'Password confirmation', :with => "password"
+  click_button 'Sign up'
 end
 
 Then(/^I should have an account$/) do
-  pending # express the regexp above with the code you wish you had
+  assert_equal 1, User.count
 end
 
 Given(/^I am on the login page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/users/sign_in'
 end
 
 Given(/^I have already registered as "(.*?)"$/) do |email|
-  pending # express the regexp above with the code you wish you had
+  User.create(:email => "save@trees.com", :password => "password", :password_confirmation => "password")
 end
 
 When(/^I login with email "(.*?)"$/) do |email|
-  pending # express the regexp above with the code you wish you had
+  fill_in 'Email', :with => email
+  fill_in 'Password', :with => 'password'
+  click_button 'Sign up'
 end
 
 Then(/^I should be redirected to the home page$/) do
-  pending # express the regexp above with the code you wish you had
+  current_path.should == root_path
 end
 
-Then(/^I should see my name in the nav bar$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see my name "(.*?)" in the nav bar$/) do |name|
+  page.should have_content('Save the Trees')
 end
 
 Given(/^I am logged in with email "(.*?)"$/) do |email|
-  pending # express the regexp above with the code you wish you had
+  User.create(:email => "save@trees.com", :password => "password", :password_confirmation => "password")
 end
 
 Given(/^I am on the create a campaign page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/campaigns/new'
 end
 
 When(/^I fill in campaign details and click submit$/) do
@@ -43,7 +48,7 @@ When(/^I fill in campaign details and click submit$/) do
 end
 
 Then(/^I should have a new campaign$/) do
-  pending # express the regexp above with the code you wish you had
+  assert_equal 1, Campaign.count
 end
 
 Given(/^I am logged in as organizer "(.*?)"$/) do |email|

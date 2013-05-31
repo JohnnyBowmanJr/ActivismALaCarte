@@ -7,6 +7,8 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'thin'
+gem 'devise'
+gem 'haml-rails'
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'
@@ -19,6 +21,8 @@ end
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 # Gems used only for assets and not required
@@ -29,6 +33,7 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
+  gem 'zurb-foundation', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
 end
 
