@@ -5,6 +5,7 @@ Activist::Application.routes.draw do
     collection do
       post 'voice'
     end
+    resources :calls
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

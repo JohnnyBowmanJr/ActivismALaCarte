@@ -22,6 +22,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'jasmine'
   gem "shoulda-matchers"
+  gem 'launchy'
 end
 
 group :test, :development do
