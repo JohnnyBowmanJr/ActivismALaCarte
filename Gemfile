@@ -11,6 +11,8 @@ gem 'devise'
 gem 'haml-rails'
 gem 'twilio-ruby'
 gem 'jquery-ui-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'

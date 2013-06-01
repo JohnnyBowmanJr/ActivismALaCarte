@@ -4,13 +4,13 @@ As an organizer
 I want to create campaigns
 And monitor their progress
 
-
 Scenario: Create a campaign
   Given I am logged in with email "save@trees.com"
   And I am on the create a campaign page
   When I fill in campaign details and click submit
   Then I should have a new campaign
 
+@wip
 Scenario: Monitor a campaign
   Given I am logged in as user "Save the Trees"
   And I am on my campaign index page

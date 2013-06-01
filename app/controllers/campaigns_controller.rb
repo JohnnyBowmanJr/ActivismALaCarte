@@ -14,12 +14,13 @@ class CampaignsController < ApplicationController
     campaign = Campaign.new(params[:campaign])
     campaign.organizer_id = current_user.id
     campaign.save
+
     redirect_to campaign_path(campaign)
   end
 
   def show
     @campaign = Campaign.find(params[:id])
-
+    @title = @campaign.target_name + ": " + @campaign.action
     default_client = "johnny"
     # Find these values at twilio.com/user/account
     account_sid = 'AC3ecb799e792404580fe5e903b88d3929'
