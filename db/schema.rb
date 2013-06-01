@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130530140002) do
 
   create_table "calls", :force => true do |t|
-    t.integer  "caller_id"
+    t.integer  "user_id"
     t.integer  "campaign_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -22,11 +22,16 @@ ActiveRecord::Schema.define(:version => 20130530140002) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "title"
+    t.string   "target_name"
+    t.string   "phone_number"
+    t.string   "action"
+    t.string   "start_date"
+    t.string   "end_date"
     t.string   "image_url"
     t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "organizer_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

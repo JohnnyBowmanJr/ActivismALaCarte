@@ -1,0 +1,36 @@
+<div class="campaign-form">
+  <%= form_for(@campaign) do |f| %>
+   
+    <div class= "field" >
+      <%= f.label :target_name, "Which public official should people call?"  %><br />
+      <%= f.text_field :target_name %>
+    </div> 
+
+    <div class="field">
+      <%= f.label :phone_number, "What is the official's public phone number?"  %><br />
+      <%= f.telephone_field :phone_number %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :action, "What do you want him/her to do?" %>
+      <%= f.text_field :action %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, "Why should people call?" %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_date, "When should this campaign start?" %>
+      <%= f.text_field :start_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_date, "When should it end?" %>
+      <%= f.text_field :end_date %>
+    </div>
+      
+    <%= f.submit "Done" %>
+  <% end %>
+</div>

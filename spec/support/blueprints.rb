@@ -11,3 +11,9 @@ User.blueprint do
   password_confirmation { "password"}
 end
 
+Call.blueprint do
+  user { User.make! }
+  campaign { Campaign.make! }
+end
+
+

@@ -9,6 +9,8 @@ gem 'pg'
 gem 'thin'
 gem 'devise'
 gem 'haml-rails'
+gem 'twilio-ruby'
+gem 'jquery-ui-rails'
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'
@@ -17,10 +19,11 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'simplecov', :require => false
   gem 'jasmine'
+  gem "shoulda-matchers"
 end
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.12'
   gem 'pry'
   gem 'pry-debugger'
 end

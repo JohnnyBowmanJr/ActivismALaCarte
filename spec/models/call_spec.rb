@@ -1,5 +1,16 @@
 require 'spec_helper'
 
 describe Call do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @call = Call.make!
+  end
+
+  #testing User/Campaign associations
+  it "should know which user it belongs to" do
+    @call.user.class.should eq(User)
+  end
+
+  it "should know campaign it belongs to" do
+    @call.campaign.class.should eq(Campaign)
+  end
 end

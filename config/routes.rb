@@ -1,6 +1,11 @@
 Activist::Application.routes.draw do
   devise_for :users
 
+  resources :campaigns do
+    collection do
+      post 'voice'
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
