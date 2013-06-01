@@ -1,4 +1,6 @@
 Activist::Application.configure do
+  FACEBOOK_APP_ID = '145612572295206'
+  FACEBOOK_APP_SECRET = '1911189fa5143725d3b9cd37678c9817'
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
