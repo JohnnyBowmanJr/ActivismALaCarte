@@ -1,10 +1,10 @@
-<button class="call" onclick="call();">
+<button class="call">
   Call
 </button>
-<button class="hangup" onclick="hangup();">
+<button class="hangup">
   Hangup
 </button>
 
-<input type="text" id="number" name="number" value= "5555555555"/>
+<input type="text" id="number" name="number" value= "<%= call.attributes.number %>"/>
 
 <div id="log">Loading pigeons...</div>

@@ -11,6 +11,8 @@ class CallsController < ApplicationController
   def new
     @call = Call.new 
     @call.campaign_id = (params[:campaign_id])
+    @call.user_id = current_user.id
+    @call.number = @call.campaign.phone_number
 
     default_client = "johnny"
     # Find these values at twilio.com/user/account
@@ -23,7 +25,6 @@ class CallsController < ApplicationController
     capability.allow_client_incoming default_client
     token = capability.generate
     @call.token = token
-    binding.pry
     render :json => @call
   end
 

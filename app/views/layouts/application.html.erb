@@ -7,50 +7,6 @@
   <script type="text/javascript"
       src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
   <%= csrf_meta_tags %>
-
-  <script type="text/javascript">
-  
-    /* Create the Client with a Capability Token */
-    Twilio.Device.setup("<%= @token %>", {debug: true});
- 
-    /* Let us know when the client is ready. */
-    Twilio.Device.ready(function (device) {
-        $("#log").text("Ready");
-    });
- 
-    /* Report any errors on the screen */
-    Twilio.Device.error(function (error) {
-        $("#log").text("Error: " + error.message);
-    });
- 
-    Twilio.Device.connect(function (conn) {
-        $("#log").text("Successfully established call");
-    });
-
-     /* Log a message when a call disconnects. */
-    Twilio.Device.disconnect(function (conn) {
-        $("#log").text("Call ended");
-    });
- 
-   /* Listen for incoming connections */
-    Twilio.Device.incoming(function (conn) {
-      $("#log").text("Incoming connection from " + conn.parameters.From);
-      // accept the incoming connection and start two-way audio
-      conn.accept();
-    });
-
-    /* Connect to Twilio when we call this function. */
-    function call() {
-      // get the phone number to connect the call to
-      params = {"PhoneNumber": $("#number").val()};
-      Twilio.Device.connect();
-    }
-
-    /* A function to end a connection to Twilio. */
-    function hangup() {
-        Twilio.Device.disconnectAll();
-    }
-  </script>
 <body>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
   <section id ="content">

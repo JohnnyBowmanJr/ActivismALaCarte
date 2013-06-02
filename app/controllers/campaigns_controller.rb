@@ -37,8 +37,10 @@ class CampaignsController < ApplicationController
   end
 
   def voice
+    default_client = 'johnny'
     caller_id = '+13109075542'
     number = params[:PhoneNumber]
+    binding.pry
     response = Twilio::TwiML::Response.new do |r|
       # Should be your Twilio Number or a verified Caller ID
       r.Dial :callerId => caller_id do |d|
