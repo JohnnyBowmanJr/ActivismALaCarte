@@ -4,7 +4,9 @@ app.Router = Backbone.Router.extend({
     '' : 'callShow'
   },
 
-  callShow: function(campaign_id) {
+  callShow: function() {
+    var campaign_id =[];
+    var campaign_id = window.location.pathname.split('/').pop();
     var call = new app.models.Call({id: campaign_id});
     call.fetch({
       success: function(call) {

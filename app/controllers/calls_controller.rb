@@ -24,7 +24,7 @@ class CallsController < ApplicationController
     token = capability.generate
     @call.token = token
     binding.pry
-    render :json => @call.as_json
+    render :json => @call
   end
 
 end
