@@ -53,7 +53,9 @@
   </script>
 <body>
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-  <%= yield %>
-
+  <section id ="content">
+    <%= yield %>
+  </div>
+  <%= javascript_include_tag "backbone" if @backbone %>
 </body>
 </html>

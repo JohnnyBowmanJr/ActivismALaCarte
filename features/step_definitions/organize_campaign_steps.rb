@@ -2,6 +2,11 @@ Given(/^I am on the create a campaign page$/) do
   visit '/campaigns/new'
 end
 
+Given "everythings fine" do
+  step "I am on the create a campaign page"
+  step "I fill in campaign details and click submit"
+end
+
 When(/^I fill in campaign details and click submit$/) do
   fill_in 'campaign_target_name', :with => "Barack Obama" 
   fill_in 'campaign_phone_number', :with => "5555555555"

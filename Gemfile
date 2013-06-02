@@ -8,11 +8,11 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'thin'
 gem 'devise'
-gem 'haml-rails'
 gem 'twilio-ruby'
 gem 'jquery-ui-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'backbone-on-rails'
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'

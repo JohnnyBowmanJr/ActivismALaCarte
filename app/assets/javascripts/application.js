@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require foundation
-//= require_tree .
+//= require underscore-min
 
 $(document).foundation();
