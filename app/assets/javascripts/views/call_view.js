@@ -27,6 +27,7 @@ app.views.CallView = Backbone.View.extend({
      /* Log a message when a call disconnects. */
     Twilio.Device.disconnect(function (conn) {
         $("#log").text("Call ended");
+
     });
    /* Listen for incoming connections */
     Twilio.Device.incoming(function (conn) {
@@ -40,7 +41,6 @@ app.views.CallView = Backbone.View.extend({
   /* Connect to Twilio when we call this function. */
   call: function() {
     // get the phone number to connect the call to
-    this.model.save();
     params = {"PhoneNumber": $("#number").val(), "campaign_id": this.model.attributes.campaign_id};
     Twilio.Device.connect(params);
 

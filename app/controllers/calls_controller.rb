@@ -22,16 +22,5 @@ class CallsController < ApplicationController
     render :json => @call
   end
 
-  def create
-    @call = Call.new(params[:call])
-    @call.save!
 
-    render :json => "Response success"
-  end
-
-  def callback(response)
-    binding.pry
-    call_sid = response["sid"]
-    campaign 
-  end
 end
