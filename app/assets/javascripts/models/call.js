@@ -1,7 +1,14 @@
 app.models.Call = Backbone.Model.extend({
 
   url: function(){
-    return '/campaigns/' + this.id + '/calls/new';
+    var url = '/campaigns/' + this.attributes.campaign_id + '/calls';
+    if(!this.isNew()) {
+      url += '/' + this.id;
+    }
+    // else{
+    //   url += '/create'
+    // }
+    return url;
   },
 
   initialize: function() {

@@ -5,7 +5,7 @@ I want to create campaigns
 And monitor their progress
 
 Scenario: Create a campaign
-  Given I am logged in with email address "save@trees.com"
+  Given I am already logged in with email address "save@trees.com"
   And I am on the create a campaign page
   When I fill in campaign details and click submit
   Then I should have a new campaign

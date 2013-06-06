@@ -1,6 +1,5 @@
 app.collections.CampaignList = Backbone.Collection.extend({
 
-  model: app.models.Campaign,
-  url: "/campaigns/"
+  model: app.models.Campaign
 
 });

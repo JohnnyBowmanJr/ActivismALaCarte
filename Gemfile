@@ -23,6 +23,7 @@ group :test do
   gem 'jasmine'
   gem "shoulda-matchers"
   gem 'launchy'
+  gem 'poltergeist'
 end
 
 group :test, :development do

@@ -31,13 +31,14 @@ Given(/^creates a campaign with target "(.*?)" and phonenumber "(.*?)"$/) do |ta
 end
 
 Given(/^I am on the show page for campaign with target "(.*?)"$/) do |target|
-  binding.pry
   id = Campaign.first.id
   visit '/campaigns/' + id.to_s
 end
 
-Then(/^I should see "(.*?)" as the campaign target$/) do |arg1|
-  page.should have_content('Barack Obama')
+Then(/^I should see "(.*?)" as the campaign target and "(.*?)" as the number$/) do |target, number|
+  save_and_open_page
+  # page.should have_content(target)
+  # page.should have_content(number)
 end
 
 Given(/^I am on the campaign index page$/) do

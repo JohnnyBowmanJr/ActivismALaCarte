@@ -15,5 +15,6 @@
 //= require jquery.ui.all
 //= require foundation
 //= require underscore-min
+//= require soundmanager2
 
 $(document).foundation();

@@ -8,7 +8,6 @@ Background:
   And creates a campaign with target "Barack Obama" and phonenumber "5555555555"
   And the user signs out
 
-@wip
 Scenario: Browse existing campaigns
   And I am already logged in as "user@email.com"
   And I am on the campaign index page
@@ -17,10 +16,11 @@ Scenario: Browse existing campaigns
   And I can sort the campaigns by tag or issue
   And I can sort the campaigns by expiration date
 
+@javascript @wip
 Scenario: Making a phone call for a campaign
   Given I am already logged in as "user@email.com"
   And I am on the show page for campaign with target "Barack Obama" 
-  Then I should see "Barack Obama" as the campaign target
+  Then I should see "Barack Obama" as the campaign target and "5555555555" as the number
   And a description of the campaign
   And make a phone call to "555-555-5555"
 
