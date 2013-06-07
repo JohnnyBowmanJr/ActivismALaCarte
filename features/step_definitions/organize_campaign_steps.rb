@@ -21,7 +21,7 @@ Then(/^I should have a new campaign$/) do
   assert_equal 1, Campaign.count
 end
 
-Given(/^I am logged in with email address "(.*?)"$/) do |email|
+Given(/^I am already logged in with email address "(.*?)"$/) do |email|
   visit '/users/sign_up'
   fill_in 'Email', :with => email 
   fill_in 'Password', :with => "password"

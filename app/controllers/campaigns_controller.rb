@@ -36,20 +36,23 @@ class CampaignsController < ApplicationController
   end
 
   def callback
+    binding.pry
     twilio_id = params[:CallSid]
-    
+    call = Call.where("twilio_id = ?", twilio_id).first
+    call.duration = params[:CallDuration]
     # using the Twilio CallSid from the callback, do a GET request to twilio
     # to get the RecordingSid associated with the CallSid
     client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
-    recordings_info = client.account.calls.twilio_id.recordings.json
-    recording_sid = recordings_info["recordings"].first["sid"]
+    recordings_info = client.account.calls.get(twilio_id).recordings
+    call.recording_url = recordings_info.list.first.mp3
+    call.recording = recordings_info.list.first.sid
+    call.save
+  
+    # guessing this is what I do from https://github.com/carrierwaveuploader/carrierwave
+    # but then I do I associate the file path with the call? Check out nokogiri/soundmanager thing
+    # here's an example of a recording url to test with 
+    # http://api.twilio.com/2010-04-01/Accounts/AC3ecb799e792404580fe5e903b88d3929/Recordings/REdc24b4648a202a7e93b6d7a8cd0dcf07
 
-    #ideally I could grab the actual file from Twilio and save it with something like this
-    #recording_file = client.account.recordings.get(recording_sid)
-    #File.open("file path that's create under user's own folder", 'w') do 
-    #  |file| file.write(recording_file) }
-
-    Call.where("twilio_id = ?", twilio_id).first.save(:duration => params[:CallDuration], :recording => recording)
     render :json => "callback success"
   end
 

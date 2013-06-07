@@ -8,11 +8,15 @@ class UsersController < ApplicationController
 
   def my_recording
     binding.pry
-    @calls = Call.where("user_id => ?", current_user.id)
-    @calls.each do |call|
+    #grab all the calls for a user
+    calls = Call.where("user_id => ?", current_user.id)
+    recordings = []
+    # iterate through all the calls and send a Twilio GET request for their recording file.
+    calls.each do |call|
       client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN)
-      @recording = client.account.recordings.get(call.recording)
-    render :json => @list
+      recordings = client.account.recordings.get(call.recording)
+    end
+    render :json => recordings
   end
 
 end
