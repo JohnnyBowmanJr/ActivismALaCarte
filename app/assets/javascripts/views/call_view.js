@@ -40,8 +40,10 @@ app.views.CallView = Backbone.View.extend({
 
   /* Connect to Twilio when we call this function. */
   call: function() {
+    // create if statement here in case user_id doesn't exist (user hasn't logged in yet).
+    $('#call-campaign-show').attr('data-user', this.model.attributes.user_id)
     // get the phone number to connect the call to
-    params = {"PhoneNumber": $("#number").val(), "campaign_id": this.model.attributes.campaign_id};
+    params = {"PhoneNumber": $("#number").val(), "campaign_id": this.model.attributes.campaign_id, "user_id": $('#call-campaign-show').attr('data-user')  };
     Twilio.Device.connect(params);
 
   },

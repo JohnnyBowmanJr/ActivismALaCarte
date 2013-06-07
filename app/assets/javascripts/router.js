@@ -2,7 +2,7 @@ app.Router = Backbone.Router.extend({
 
   routes: {
     'campaigns/:id' : 'callShow',
-    'my-campaigns' : 'myCampaigns'
+    'mycampaigns' : 'myCampaigns'
   },
 
   callShow: function() {
@@ -22,8 +22,11 @@ app.Router = Backbone.Router.extend({
 
   myCampaigns: function() {
     var myRecording = new app.models.MyRecording();
+    
     myRecording.fetch({
       success: function(recording) {
+        // how should I append a soundmanager player to each recording?
+        // will the soundmanager player play a Twilio URL?
         var view = new app.views.myRecordingsView({ model : myRecording });
         $('#recordings-panel').html(view.render().el);
       }

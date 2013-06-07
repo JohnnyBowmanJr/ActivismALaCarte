@@ -3,11 +3,10 @@ class CallsController < ApplicationController
   # call from call.fetch() in router.js. This gives back Twilio token and db data 
   # (phone number, user_id, and campaign_id)
   def index
-    @call = Call.new 
-    @call.campaign_id = params[:campaign_id]
-    @call.user_id = current_user.id
-    @call.number = @call.campaign.phone_number
-
+    call = Call.new 
+    call.campaign_id = params[:campaign_id]
+    call.number = call.campaign.phone_number
+    call.user_id = current_user.id
     default_client = "johnny"
     # Find these values at twilio.com/user/account
     account_sid = 'AC3ecb799e792404580fe5e903b88d3929'
@@ -18,8 +17,8 @@ class CallsController < ApplicationController
     capability.allow_client_outgoing "APc47ff3822652f09502959b08335d24a7"
     capability.allow_client_incoming default_client
     token = capability.generate
-    @call.token = token
-    render :json => @call
+    call.token = token
+    render :json => call
   end
 
 

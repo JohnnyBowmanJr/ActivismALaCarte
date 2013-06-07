@@ -4,14 +4,12 @@ Activist::Application.routes.draw do
   resources :campaigns do
     collection do
       post 'voice'
-    end
-    member do
-      get 'get_info'
+      post 'callback'
     end
     resources :calls
   end
 
-  match 'my-campaigns' => 'users#mycampaigns', :as => :mycampaigns
+  match 'mycampaigns' => 'users#mycampaigns', :as => :mycampaigns
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

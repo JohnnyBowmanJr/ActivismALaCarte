@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 
   def my_recording
     binding.pry
-    account_sid = 'AC3ecb799e792404580fe5e903b88d3929'
-    auth_token = 'd5ee548232ded22642dfe296d46df3af'
-    client = Twilio::REST::Client.new(account_sid, auth_token)
-    @list = client.account.recordings.list()
+    @calls = Call.where("user_id => ?", current_user.id)
+    @calls.each do |call|
+      client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN)
+      @recording = client.account.recordings.get(call.recording)
     render :json => @list
   end
 

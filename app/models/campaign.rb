@@ -1,5 +1,5 @@
 class Campaign < ActiveRecord::Base
-  attr_accessible :description, :image_url, :organizer_id, :title, :target_name, :phone_number 
+  attr_accessible :description, :image_url, :organizer_id, :title, :target_name, :phone_number
   attr_accessible :action, :start_date, :end_date
   
 

@@ -18,8 +18,7 @@ class CampaignsController < ApplicationController
     default_client = 'johnny'
     caller_id = '+13109075542'
     number = params[:PhoneNumber]
-    binding.pry
-    Call.create(:campaign_id => params[:campaign_id], :user_id => current_user.id, :twilio_id => params[:callsid])
+    Call.create(:campaign_id => params[:campaign_id], :user_id => params[:user_id], :twilio_id => params[:CallSid])
     response = Twilio::TwiML::Response.new do |r|
       # Should be your Twilio Number or a verified Caller ID
       r.Dial :callerId => caller_id, :record => true do |d|
@@ -31,18 +30,27 @@ class CampaignsController < ApplicationController
         else
             d.Client default_client
         end
-        render :xml => response.text
       end
     end
+    render :xml => response.text
   end
 
   def callback
-    binding.pry
-    # get call_sid
-    # get recording
-    # need campaign_id 
-    call.user_id = current_user.id
-    render :json => call
+    twilio_id = params[:CallSid]
+    
+    # using the Twilio CallSid from the callback, do a GET request to twilio
+    # to get the RecordingSid associated with the CallSid
+    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+    recordings_info = client.account.calls.twilio_id.recordings.json
+    recording_sid = recordings_info["recordings"].first["sid"]
+
+    #ideally I could grab the actual file from Twilio and save it with something like this
+    #recording_file = client.account.recordings.get(recording_sid)
+    #File.open("file path that's create under user's own folder", 'w') do 
+    #  |file| file.write(recording_file) }
+
+    Call.where("twilio_id = ?", twilio_id).first.save(:duration => params[:CallDuration], :recording => recording)
+    render :json => "callback success"
   end
 
 
