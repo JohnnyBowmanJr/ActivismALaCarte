@@ -13,4 +13,7 @@ describe Call do
   it "should know campaign it belongs to" do
     @call.campaign.class.should eq(Campaign)
   end
+
+  it { should belong_to(:user) }
+  it { should belong_to(:campaign) }
 end

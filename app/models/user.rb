@@ -19,9 +19,14 @@ class User < ActiveRecord::Base
   has_many :calls
   has_many :campaigns, :through => :calls
 
+  # a user has many campaigns that she creates
   has_many :organized_campaigns, :class_name => 'Campaign', :foreign_key => :organizer_id
-  #how do you say an organizer has many users through the campaigns she organizes?
+  
+  #a user (aka organizer) has many users through the campaigns she creates
   has_many :users, :through => :organized_campaigns, :source => :organizer
+
+  # currently this isn't working. Does campaign need to belong_to 
+  has_many :organized_calls, :class_name => "Call", :through => :organized_campaigns, :source => :organizer
   
 
 end

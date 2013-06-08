@@ -13,6 +13,7 @@ describe User do
   it { should have_many(:campaigns).through(:calls) }
   it { should have_many(:organized_campaigns) }
   it { should have_many(:users).through(:organized_campaigns) }
+  it { should have_many(:organized_calls).through(:organized_campaigns)}
   # it "should know how many campaigns it has" do
   #   binding.pry
   #   @user.campaigns.length.should eq(2)

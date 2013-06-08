@@ -11,6 +11,7 @@ Activist::Application.routes.draw do
 
   match 'mycampaigns' => 'users#mycampaigns', :as => :mycampaigns
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
+  match '/users/my_recordings_list' => 'users#my_recordings_list', :as => :my_recordings_list
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # The priority is based upon order of creation:

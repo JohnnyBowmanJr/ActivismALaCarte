@@ -1,22 +1,19 @@
 class UsersController < ApplicationController
   def mycampaigns
     @backbone = true
+    @user_id = current_user.id
     @campaigns = Campaign.where("organizer_id = ?", current_user.id)
     render :mycampaigns
   end
 
-
-  def my_recording
+  def my_recordings_list
     binding.pry
-    #grab all the calls for a user
-    calls = Call.where("user_id => ?", current_user.id)
-    recordings = []
-    # iterate through all the calls and send a Twilio GET request for their recording file.
-    calls.each do |call|
-      client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN)
-      recordings = client.account.recordings.get(call.recording)
-    end
-    render :json => recordings
+    calls = current_user.organized_calls
+    render :json => calls
+  end
+
+  # this is the route for the MyRecording model in backbone
+  def my_recording
   end
 
 end

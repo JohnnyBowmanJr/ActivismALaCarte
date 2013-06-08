@@ -6,6 +6,7 @@ class Call < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :campaign
+  
 
   #take user_id out of this and call#index when implementing log-in system so that non-logged
   #in users don't get an error when rendering show page. Instead user_id should append to DOM

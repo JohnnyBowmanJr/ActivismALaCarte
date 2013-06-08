@@ -1,29 +1,11 @@
-<% @campaigns.each do |campaign| %>
-  <%= render :partial => "campaign", :locals => { :campaign => campaign }  %>
-<% end %>
-
-<div id="recordings-panel"></div>
-<script>
-  soundManager.setup({
-    url: '/swf/',
-    flashVersion: 9, // optional: shiny features (default = 8)
-    // optional: ignore Flash where possible, use 100% HTML5 mode
-    // preferFlash: false,
-    onready: function() {
-      soundManager.createSound({
-      id: 'show_recording',
-      url: 'http://api.twilio.com/2010-04-01/Accounts/AC3ecb799e792404580fe5e903b88d3929/Recordings/RE9e59cc8cef36ae5cf651a5582dac9306',
-      autoLoad: true,
-      autoPlay: false,
-      onload: function() {
-      },
-      whileplaying: function(){
-        var seconds = Math.round(this.position/1000);
-        var minutes = Math.round(this.position/1000/60);
-        $('.duration').html('<p>' + minutes + ":" + seconds + '</p>');
-      },
-      volume: 50
-      });
-    }
-  });
-</script>
+<div class="row">
+  <div class="large-8 columns">
+    <% @campaigns.each do |campaign| %>
+      <%= render :partial => "campaign", :locals => { :campaign => campaign }  %>
+    <% end %>
+  </div>
+  <div class="large-4 columns">
+    <div id="recordings-panel" data-user= "<%=@user_id %>" >
+    </div>
+  </div>
+</div>
