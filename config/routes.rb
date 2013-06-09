@@ -1,5 +1,4 @@
 Activist::Application.routes.draw do
-  devise_for :users
 
   resources :campaigns do
     collection do

@@ -1,11 +1,12 @@
-<div class="campaign-window"> 
-  <div class="title">
-    <%= campaign.target_name %>: <%= campaign.action %>
-  </div>
-  <div class="date-range">
-    <%= campaign.start_date %> - <%= campaign.end_date %>
-  </div>
-  <div class="calls-number">
-    Calls: <%=campaign.calls.length %>
-  </div>
+<div class="campaign-tile large-4 columns"> 
+  <%= link_to campaign_path(campaign.id), :class => "campaign-tile-container" do %>
+    <%= image_tag("Lion_285x200.jpg") %>
+
+    <div class="title">
+      <%= campaign.target_name %>: <%= campaign.action %>
+    </div>
+    <div class="calls-number">
+      Calls: <%=campaign.calls.length %>
+    </div>
+  <% end %>
 </div>

@@ -30,7 +30,19 @@
       <%= f.label :end_date, "When should it end?" %>
       <%= f.text_field :end_date %>
     </div>
+
+    <div class="field">
+      <%= f.label :image, "Please upload a photo associated with your campaign" %>
+      <%= f.file_field :image %>
+    </div>
       
     <%= f.submit "Done" %>
   <% end %>
 </div>
+
+<script>
+ $(function() {
+    $( "input#campaign_start_date" ).datepicker();
+    $( "input#campaign_end_date" ).datepicker();
+  });
+</script>

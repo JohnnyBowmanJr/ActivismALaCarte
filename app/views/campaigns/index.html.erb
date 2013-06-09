@@ -1,1 +1,16 @@
-Hey there
+<div class="row">
+  <p id="homepage-plea">We need you to call</p>
+</div>
+<div class="row">
+  <% @campaigns.each do |campaign| %>
+    <%= render :partial => 'campaign', :locals => { :campaign => campaign } %>
+  <% end %>
+</div>
+
+<script>
+  $(function() {
+    $( "#progressbar" ).progressbar({
+      value: 37
+    });
+  });
+</script>

@@ -1,7 +1,8 @@
 class CampaignsController < ApplicationController
 
   def index
-    @current_user = current_user
+    @user = current_user
+    @campaigns = Campaign.all
     render :index
   end
 
