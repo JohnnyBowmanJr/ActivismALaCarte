@@ -10,7 +10,23 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @title = @campaign.target_name + ": " + @campaign.action
     @backbone = true
+    binding.pry
     render :show
+  end
+
+  def get_token
+    call = Call.new
+    default_client = "johnny"
+    # Find these values at twilio.com/user/account
+    account_sid = 'AC3ecb799e792404580fe5e903b88d3929'
+    auth_token = 'd5ee548232ded22642dfe296d46df3af'
+  
+    capability = Twilio::Util::Capability.new account_sid, auth_token
+    # Create an application sid at twilio.com/user/account/apps and use it here
+    capability.allow_client_outgoing "APc47ff3822652f09502959b08335d24a7"
+    capability.allow_client_incoming default_client
+    call.token = capability.generate
+    render :json => call
   end
 
   # this post request to campaigns#voice runs when people click "call" and the Twilio.Device.connect(params);
@@ -49,11 +65,6 @@ class CampaignsController < ApplicationController
     call.recording = recordings_info.list.first.sid
     call.save
   
-    # guessing this is what I do from https://github.com/carrierwaveuploader/carrierwave
-    # but then I do I associate the file path with the call? Check out nokogiri/soundmanager thing
-    # here's an example of a recording url to test with 
-    # http://api.twilio.com/2010-04-01/Accounts/AC3ecb799e792404580fe5e903b88d3929/Recordings/REdc24b4648a202a7e93b6d7a8cd0dcf07
-
     render :json => "callback success"
   end
 

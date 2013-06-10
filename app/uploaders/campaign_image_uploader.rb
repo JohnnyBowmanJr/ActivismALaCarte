@@ -11,8 +11,8 @@ class CampaignImageUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  #storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -37,7 +37,7 @@ class CampaignImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :scale => [300, 200]
+    process :resize_to_fill => [303, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

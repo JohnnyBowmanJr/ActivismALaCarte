@@ -5,16 +5,12 @@ app.Router = Backbone.Router.extend({
     'mycampaigns' : 'myCampaigns'
   },
 
-  callShow: function() {
-    var campaign_id = [];
-    //this should be getting the campaign id through jquery grabbing a data attribute in the dom
-    var campaign_id = window.location.pathname.split('/').pop();
-    var call = new app.models.Call({campaign_id: campaign_id});
-    
-    // GET call data from /campaigns/:id/calls
-    call.fetch({
+  callShow: function(campaign_id) {
+    var token = new app.models.Campaign({ campaign_id : campaign_id});
+    token.url = '/campaigns/' + campaign_id + '/get_token';
+    token.fetch({
       success: function(call) {
-        var view = new app.views.CallView({ model : call });
+        var view = new app.views.CallView({ token : call.attributes.token });
         $('#call-campaign-show').html(view.render().el);
       }
     });

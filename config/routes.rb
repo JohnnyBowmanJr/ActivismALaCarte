@@ -5,6 +5,9 @@ Activist::Application.routes.draw do
       post 'voice'
       post 'callback'
     end
+    member do
+      get 'get_token'
+    end
     resources :calls
   end
 

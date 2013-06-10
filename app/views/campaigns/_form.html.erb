@@ -1,5 +1,5 @@
 <div class="campaign-form">
-  <%= form_for(@campaign) do |f| %>
+  <%= form_for(@campaign, :multipart => true) do |f| %>
    
     <div class= "field" >
       <%= f.label :target_name, "Which public official should people call?"  %><br />

@@ -1,8 +1,8 @@
 class Campaign < ActiveRecord::Base
   attr_accessible :description, :image_url, :organizer_id, :title, :target_name, :phone_number
-  attr_accessible :action, :start_date, :end_date, :image_url
+  attr_accessible :action, :start_date, :end_date, :image
   
-  #mount_uploader :image_url, CampaignImageUploader
+  mount_uploader :image, CampaignImageUploader
   
   has_many :calls
   has_many :users, :through => :calls

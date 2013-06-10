@@ -14,6 +14,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'backbone-on-rails'
 gem 'carrierwave'
+gem 'mini_magick'
+gem "aws-s3", "~> 0.6.3"
+gem "fog", "~> 1.11.1"
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'

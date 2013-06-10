@@ -9,10 +9,10 @@ app.views.CallView = Backbone.View.extend({
   },
 
   render: function() {
-    var html = this.template({call : this.model});
+    var html = this.template();
     this.$el.html(html);
      /* Create the Client with a Capability Token */
-    Twilio.Device.setup(this.model.attributes.token, {debug: true});
+    Twilio.Device.setup(this.options.token, {debug: true});
     /* Let us know when the client is ready. */
     Twilio.Device.ready(function (device) {
         $("#log").text("Ready");
@@ -40,13 +40,20 @@ app.views.CallView = Backbone.View.extend({
 
   /* Connect to Twilio when we call this function. */
   call: function() {
-    // currently I'm appending the user id here, but this should be appended on login down the line
     // create if statement here in case user_id doesn't exist (user hasn't logged in yet).
-    $('#call-campaign-show').attr('data-user', this.model.attributes.user_id)
-    // get the phone number to connect the call to
-    params = {"PhoneNumber": $("#number").val(), "campaign_id": this.model.attributes.campaign_id, "user_id": $('#call-campaign-show').attr('data-user')  };
-    Twilio.Device.connect(params);
+    // GET call data from /campaigns/:id/calls, including user_id, campaign_id and campaign_phone number
+    //this should be getting the campaign id through jquery grabbing a data attribute in the dom
+    var campaign_id = window.location.pathname.split('/').pop();
+    var call = new app.models.Call({campaign_id: campaign_id});
 
+    call.fetch({
+      success: function(call) {
+        // append phone number to 
+        // get the phone number to connect the call to
+        params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
+        Twilio.Device.connect(params);
+      }
+    });
   },
 
   /* A function to end a connection to Twilio. */
