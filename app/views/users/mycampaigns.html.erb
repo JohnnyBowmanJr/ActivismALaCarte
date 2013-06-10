@@ -1,11 +1,5 @@
-<div class="row">
-  <div class="large-8 columns">
-    <% @campaigns.each do |campaign| %>
-      <%= render :partial => "campaign", :locals => { :campaign => campaign }  %>
-    <% end %>
-  </div>
-  <div class="large-4 columns">
-    <div id="recordings-panel" data-user= "<%=@user_id %>" >
-    </div>
-  </div>
+<div class="my-campaigns-page">
+  <% @campaigns.each do |campaign| %>
+    <%= render :partial => "campaign", :locals => { :campaign => campaign }  %>
+  <% end %>
 </div>

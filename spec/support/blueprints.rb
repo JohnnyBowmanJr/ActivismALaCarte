@@ -12,8 +12,11 @@ User.blueprint do
 end
 
 Call.blueprint do
-  user { User.make! }
-  campaign { Campaign.make! }
+  user = User.make!
+  campaign = user.organized_campaigns.make!
+  user_id {user.id}
+  campaign_id {campaign.id}
 end
+
 
 

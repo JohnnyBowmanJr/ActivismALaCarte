@@ -10,7 +10,6 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @title = @campaign.target_name + ": " + @campaign.action
     @backbone = true
-    binding.pry
     render :show
   end
 

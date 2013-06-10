@@ -140,7 +140,20 @@
         null
       ],
       "/Users/johnnybowman/projects/activist/config/initializers/carrierwave.rb": [
-        1
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null
       ],
       "/Users/johnnybowman/projects/activist/config/initializers/devise.rb": [
         null,
@@ -658,7 +671,6 @@
         0,
         0,
         0,
-        0,
         null,
         null,
         1,
@@ -759,8 +771,8 @@
         null,
         null,
         null,
-        1,
         null,
+        1,
         null,
         null,
         null,
@@ -845,19 +857,22 @@
         1,
         null,
         1,
-        8,
-        8,
+        10,
+        10,
         null,
         null,
         1,
-        8,
-        8,
-        8,
+        10,
+        10,
+        10,
         null,
         null,
         1,
-        8,
-        8,
+        5,
+        5,
+        10,
+        10,
+        null,
         null,
         null,
         null
@@ -976,9 +991,9 @@
         2,
         2,
         null,
-        null,
-        null,
-        null,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -989,6 +1004,6 @@
         null
       ]
     },
-    "timestamp": 1370795417
+    "timestamp": 1370870520
   }
 }

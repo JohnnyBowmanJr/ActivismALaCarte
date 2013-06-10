@@ -14,11 +14,11 @@ describe User do
   it { should have_many(:organized_campaigns) }
   it { should have_many(:users).through(:organized_campaigns) }
   it { should have_many(:organized_calls).through(:organized_campaigns)}
-  # it "should know how many campaigns it has" do
-  #   binding.pry
-  #   @user.campaigns.length.should eq(2)
-  #   @user.campaigns.first.class.should eq(Campaign)
-  # end
+ 
+  it "should have many organized calls" do
+    Call.make!
+    User.first.organized_calls.first.class.should eq(Call)
+  end
 
   # it "should know how many callers he has in his campaign" do
   #   binding.pry

@@ -1,11 +1,23 @@
-<div class="campaign-window"> 
-  <div class="title">
-    <%= campaign.target_name %>: <%= campaign.action %>
+<div class="campaign-window ">
+  <div class="row">
+    <div class="title large-12 columns">
+      <%= campaign.target_name %>: <%= campaign.action %>
+    </div>
   </div>
-  <div class="date-range">
-    <%= campaign.start_date %> - <%= campaign.end_date %>
-  </div>
-  <div class="calls-number">
-    Calls: <%=campaign.calls.length %>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= image_tag(campaign.image.thumb.url) %>
+    </div>
+    <div class="calls-number large-8 columns">
+      <div class="calls-length">
+        </q>Calls: <%=campaign.calls.length %>
+      </div>
+      <div class="date-range">
+        <%= campaign.start_date %> - <%= campaign.end_date %>
+      </div>
+      <div id="recordings-panel" data-user= "<%=@user_id %>" >
+      </div>
+    </div>
   </div>
 </div>
+    
