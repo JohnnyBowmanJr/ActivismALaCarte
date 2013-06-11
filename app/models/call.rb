@@ -2,7 +2,7 @@ class Call < ActiveRecord::Base
   include ActiveModel::Serializers::JSON
   attr_accessible :user_id, :campaign_id, :twilio_id, :recording, :duration, :recording_url
 
-  attr_accessor :token, :number
+  attr_accessor :token, :number, :target_name
 
   belongs_to :user
   belongs_to :campaign
@@ -13,7 +13,7 @@ class Call < ActiveRecord::Base
   #in users don't get an error when rendering show page. Instead user_id should append to DOM
   #on login screen through modal instead of being passed this way.
   def attributes
-    {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at}
+    {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at, 'target_name' => target_name}
   end
 
 end

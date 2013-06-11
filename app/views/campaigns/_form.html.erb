@@ -33,10 +33,10 @@
 
     <div class="field">
       <%= f.label :image, "Please upload a photo associated with your campaign" %>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, :class => "button tiny secondary" %>
     </div>
       
-    <%= f.submit "Done" %>
+    <%= f.submit "Done", :class => "button submit" %>
   <% end %>
 </div>
 

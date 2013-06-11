@@ -9,13 +9,13 @@ app.views.CallView = Backbone.View.extend({
   },
 
   render: function() {
-    var html = this.template();
+    var html = this.template({target_name: this.model.target_name});
     this.$el.html(html);
      /* Create the Client with a Capability Token */
-    Twilio.Device.setup(this.options.token, {debug: true});
+    Twilio.Device.setup(this.model.token, {debug: true});
     /* Let us know when the client is ready. */
     Twilio.Device.ready(function (device) {
-        $("#log").text("Ready");
+        $("#log").text("Press the 'Call' button above to start your phone call");
     });
     /* Report any errors on the screen */
     Twilio.Device.error(function (error) {
@@ -55,6 +55,8 @@ app.views.CallView = Backbone.View.extend({
         }else{
           params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
           Twilio.Device.connect(params);
+          $('button.call').toggle();
+          $('button.hangup').toggle();
         }
       }
     });

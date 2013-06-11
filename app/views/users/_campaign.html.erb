@@ -2,19 +2,19 @@
   <div class="row">
     <div class="title large-12 columns">
       <h4><%= campaign.target_name %>: <%= campaign.action %></h4>
+      <%= link_to "Edit", edit_campaign_path(campaign.id) %>
+      <div class="calls-length">
+        Total Calls: <%=campaign.calls.length %>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="large-4 columns">
-      <div class="calls-length">
-        Total Calls: <%=campaign.calls.length %>
-      </div>
       <%= image_tag(campaign.image.thumb.url) %>
     </div>
     <div class="calls-number large-5 columns">
-      <div id="call-chart-<%=campaign.id%>" class="call-chart">
-        <%= campaign.start_date %> - <%= campaign.end_date %>
-      </div>
+      <h5>Total Calls Last Week</h5>
+      <div id="call-chart-<%=campaign.id%>" class="call-chart"></div>
     </div>
     <div class="large-3 columns" id="recordings-panel" data-user= "<%=@user_id %>" >
       <h6>Recordings</h6>

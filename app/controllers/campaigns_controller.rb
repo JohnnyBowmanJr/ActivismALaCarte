@@ -15,6 +15,8 @@ class CampaignsController < ApplicationController
 
   def get_token
     call = Call.new
+    call.campaign_id = params[:id]
+    call.target_name = call.campaign.target_name
     default_client = "johnny"
     # Find these values at twilio.com/user/account
     account_sid = 'AC3ecb799e792404580fe5e903b88d3929'
@@ -80,5 +82,18 @@ class CampaignsController < ApplicationController
     redirect_to campaign_path(campaign)
   end
 
+  def edit
+    @campaign = Campaign.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @campaign = Campaign.find(params[:id])
+    if @campaign.update_attributes(params[:campaign])
+      redirect_to @campaign, notice: 'Success! Your campaign is updated.'
+    else
+      render action: "edit", notice: 'Oops, your campaign was not able to be updated. Check for funny characters in your description and please try again'
+    end
+  end
 
 end

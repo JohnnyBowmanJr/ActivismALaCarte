@@ -2,7 +2,10 @@
   <p id="homepage-plea">We need you to call</p>
 </div>
 <div class="row">
-  <% @campaigns.each do |campaign| %>
-    <%= render :partial => 'campaign', :locals => { :campaign => campaign } %>
-  <% end %>
+  <ul class="large-block-grid-3 index-grid">
+    <% @campaigns.each do |campaign| %>
+      <%= render :partial => 'campaign', :locals => { :campaign => campaign } %>
+    <% end %>
+  </ul>
 </div>
+

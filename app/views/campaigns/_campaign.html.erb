@@ -1,12 +1,14 @@
-<div class="campaign-tile large-4 columns"> 
-  <%= link_to campaign_path(campaign.id), :class => "campaign-tile-container" do %>
-    <%= image_tag(campaign.image.thumb.url) %>
+<li class="campaign-tile"> 
+  <div class="campaign-tile-container"> 
+    <%= link_to campaign_path(campaign.id) do %>
+      <%= image_tag(campaign.image.thumb.url) %>
 
-    <div class="title">
-      <%= campaign.target_name %>: <%= campaign.action %>
-    </div>
-    <div class="calls-number">
-      Calls: <%=campaign.calls.length %>
-    </div>
-  <% end %>
-</div>
+      <div class="title">
+        <%= campaign.target_name %>: <%= campaign.action %>
+      </div>
+      <div class="calls-number">
+        Calls: <%=campaign.calls.length %>
+      </div>
+    <% end %>
+  </div>
+</li>
