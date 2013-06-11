@@ -1,21 +1,10 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name
-  # attr_accessible :title, :body
-
-  # has_many :campaigns
-  # has_many :callers, :through => :campaigns
-  
-  # has_many :calls, :source => :caller
-  # has_many :called_campaigns, :through => :calls, :class_name => 'Campaign'
-
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :access_token
   has_many :calls
   has_many :campaigns, :through => :calls
 
@@ -27,6 +16,24 @@ class User < ActiveRecord::Base
 
   # currently this isn't working. Does campaign need to belong_to 
   has_many :organized_calls, :class_name => "Call", :through => :organized_campaigns, :source => :organizer
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  
+    unless user
+      user = User.create(provider:auth.provider, 
+        uid:auth.uid, 
+        email:auth.info.email, 
+        password:Devise.friendly_token[0,20]
+        )
+    end
+
+    #user.update_attributes(access_token:auth['credentials']['token'])
+    #user.update_attributes(image_url:user.facebook_profile_large)
+    #user.update_attributes(image_url_small:user.facebook_profile_small)
+
+    user
+  end
 
 
 end
