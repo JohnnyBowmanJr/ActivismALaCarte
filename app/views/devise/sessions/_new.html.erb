@@ -1,6 +1,9 @@
 <div id="sign-in-modal" class="reveal-modal medium">  
-  <h2>Sign in or <%= link_to "Sign Up", new_user_registration_path, :data => { :'reveal-id' => 'sign-up-modal' }%></h2>
-
+  <% if params["action"] == "show" %>
+    <h2>A quickie before the call...<br />Please sign in or <%= link_to "sign up", new_user_registration_path, :data => { :'reveal-id' => 'sign-up-modal' }%></h2>
+  <% else %>
+    <h2>Sign in or <%= link_to "Sign Up", new_user_registration_path, :data => { :'reveal-id' => 'sign-up-modal' }%></h2>
+  <% end %>
   <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to image_tag("facebook-connect.png"), omniauth_authorize_path(resource_name, provider) %>

@@ -50,8 +50,12 @@ app.views.CallView = Backbone.View.extend({
       success: function(call) {
         // append phone number to 
         // get the phone number to connect the call to
-        params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
-        Twilio.Device.connect(params);
+        if(call.attributes.user_id === null) {
+          $('#sign-in-modal').foundation('reveal', 'open');
+        }else{
+          params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
+          Twilio.Device.connect(params);
+        }
       }
     });
   },

@@ -52,7 +52,6 @@ class CampaignsController < ApplicationController
   end
 
   def callback
-    binding.pry
     twilio_id = params[:CallSid]
     call = Call.where("twilio_id = ?", twilio_id).first
     call.duration = params[:CallDuration]
