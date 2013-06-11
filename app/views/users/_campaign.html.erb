@@ -1,22 +1,32 @@
-<div class="campaign-window ">
+<div class="campaign-window " data-campaign="<%=campaign.id%>" >
   <div class="row">
     <div class="title large-12 columns">
-      <%= campaign.target_name %>: <%= campaign.action %>
+      <h4><%= campaign.target_name %>: <%= campaign.action %></h4>
     </div>
   </div>
   <div class="row">
     <div class="large-4 columns">
+      <div class="calls-length">
+        Total Calls: <%=campaign.calls.length %>
+      </div>
       <%= image_tag(campaign.image.thumb.url) %>
     </div>
-    <div class="calls-number large-8 columns">
-      <div class="calls-length">
-        </q>Calls: <%=campaign.calls.length %>
-      </div>
-      <div class="date-range">
+    <div class="calls-number large-5 columns">
+      <div id="call-chart-<%=campaign.id%>" class="call-chart">
         <%= campaign.start_date %> - <%= campaign.end_date %>
       </div>
-      <div id="recordings-panel" data-user= "<%=@user_id %>" >
-      </div>
+    </div>
+    <div class="large-3 columns" id="recordings-panel" data-user= "<%=@user_id %>" >
+      <h6>Recordings</h6>
+      <% campaign.calls.each do |call| %>
+        <% if call.recording_url %>
+          <%= link_to "Play Recording", call.recording_url, :title => "Play Recording", :class => "sm2_button" %> 
+          <%= call.user.email %>
+        <% end %>
+      <% end %>
+      <% if campaign.calls.length == 0 %>
+        <p>There are no recordings for this campaign...yet!</p>
+      <% end %>
     </div>
   </div>
 </div>

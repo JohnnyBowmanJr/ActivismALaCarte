@@ -9,4 +9,5 @@ app.models.Campaign = Backbone.Model.extend({
     this.calls.url = '/campaigns/' + this.attributes.campaign_id + '/calls';
     this.calls.on("reset", this.updateCounts);
   }
+
 });

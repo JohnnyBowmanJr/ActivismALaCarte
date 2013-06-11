@@ -7,12 +7,13 @@ class Call < ActiveRecord::Base
   belongs_to :user
   belongs_to :campaign
   
+  # scope :today, where(:created_at => Date.today)
 
   #take user_id out of this and call#index when implementing log-in system so that non-logged
   #in users don't get an error when rendering show page. Instead user_id should append to DOM
   #on login screen through modal instead of being passed this way.
   def attributes
-    {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number}
+    {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at}
   end
 
 end

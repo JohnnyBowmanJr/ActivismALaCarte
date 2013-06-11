@@ -27,6 +27,6 @@ class User < ActiveRecord::Base
 
   # currently this isn't working. Does campaign need to belong_to 
   has_many :organized_calls, :class_name => "Call", :through => :organized_campaigns, :source => :organizer
-  
+
 
 end

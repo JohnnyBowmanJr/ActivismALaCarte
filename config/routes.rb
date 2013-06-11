@@ -12,6 +12,7 @@ Activist::Application.routes.draw do
   end
 
   match 'mycampaigns' => 'users#mycampaigns', :as => :mycampaigns
+  match 'mycampaigns/recordings' => 'users#my_recordings', :as => :myrecordings
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
   match '/users/my_recordings_list' => 'users#my_recordings_list', :as => :my_recordings_list
 

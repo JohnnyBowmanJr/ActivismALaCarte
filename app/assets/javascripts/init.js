@@ -6,8 +6,6 @@ $(document).ready(function() {
     }
   });
 
-  //what's going on here?
   var router = new app.Router();
   Backbone.history.start({pushState: true});
-  //router.navigate('');
 });

@@ -9,6 +9,7 @@ gem 'pg'
 gem 'thin'
 gem 'devise'
 gem 'twilio-ruby'
+gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -47,8 +48,6 @@ group :assets do
   gem 'zurb-foundation', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
