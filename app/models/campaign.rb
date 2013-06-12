@@ -40,4 +40,36 @@ class Campaign < ActiveRecord::Base
   def attributes
     {'action' => action, 'created_at' => created_at, 'end_date' => end_date, 'target_name' => target_name, 'calls' => calls, 'id' => id, 'today_calls' => today_calls, 'one_day_calls' => one_day_calls, 'two_days_calls' => two_days_calls, 'three_days_calls' => three_days_calls, 'four_days_calls' => four_days_calls, 'five_days_calls' => five_days_calls}
   end
+
+  def self.create_twilio_response(number)
+    response = Twilio::TwiML::Response.new do |r|
+      # Should be your Twilio Number or a verified Caller ID
+      caller_id = '+13109075542'
+      r.Dial :callerId => caller_id, :record => true do |d|
+        # Test to see if the PhoneNumber is a number, or a Client ID. In
+        # this case, we detect a Client ID by the presence of non-numbers
+        # in the PhoneNumber parameter.
+        if /^[\d\+\-\(\) ]+$/.match(number)
+            d.Number(CGI::escapeHTML number)
+        else
+            d.Client DEFAULT_CLIENT
+        end
+      end
+    end
+    response
+  end
+
+  def self.calls_per_day(campaigns)
+    campaigns.each do |campaign|
+      campaign.today_calls = campaign.calls.from_today.length
+      campaign.one_day_calls = campaign.calls.from_one_day.length
+      campaign.two_days_calls = campaign.calls.from_two_days.length
+      campaign.three_days_calls = campaign.calls.from_three_days.length
+      campaign.four_days_calls = campaign.calls.from_four_days.length
+      campaign.five_days_calls = campaign.calls.from_five_days.length
+    end
+    campaigns
+  end
+
+  
 end

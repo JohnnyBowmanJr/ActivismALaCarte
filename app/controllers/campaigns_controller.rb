@@ -23,50 +23,23 @@ class CampaignsController < ApplicationController
 
   def get_token
     call = Call.new
-    call.campaign_id = params[:id]
-    call.target_name = call.campaign.target_name
-    capability = Twilio::Util::Capability.new ACCOUNT_SID, AUTH_TOKEN
-    capability.allow_client_outgoing "APc47ff3822652f09502959b08335d24a7"
-    capability.allow_client_incoming DEFAULT_CIENT
-    call.token = capability.generate
+    call.twilio_token(params[:id])
     render :json => call
   end
 
   # this post request to campaigns#voice runs when people click "call" and 
   # the Twilio.Device.connect(params); runs in call_view.js
   def voice
-    default_client = 'johnny'
-    caller_id = '+13109075542'
     number = params[:PhoneNumber]
     Call.create(:campaign_id => params[:campaign_id], :user_id => params[:user_id], :twilio_id => params[:CallSid])
-    response = Twilio::TwiML::Response.new do |r|
-      # Should be your Twilio Number or a verified Caller ID
-      r.Dial :callerId => caller_id, :record => true do |d|
-        # Test to see if the PhoneNumber is a number, or a Client ID. In
-        # this case, we detect a Client ID by the presence of non-numbers
-        # in the PhoneNumber parameter.
-        if /^[\d\+\-\(\) ]+$/.match(number)
-            d.Number(CGI::escapeHTML number)
-        else
-            d.Client default_client
-        end
-      end
-    end
+    response = Campaign.create_twilio_response(number)
     render :xml => response.text
   end
 
   def callback
     twilio_id = params[:CallSid]
     call = Call.where("twilio_id = ?", twilio_id).first
-    call.duration = params[:CallDuration]
-    # using the Twilio CallSid from the callback, do a GET request to twilio
-    # to get the RecordingSid associated with the CallSid
-    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
-    recordings_info = client.account.calls.get(twilio_id).recordings
-    call.recording_url = recordings_info.list.first.mp3
-    call.recording = recordings_info.list.first.sid
-    call.save
-  
+    call.get_recording_info(twilio_id, params[:CallDuration] )
     render :json => "callback success"
   end
 
@@ -80,7 +53,6 @@ class CampaignsController < ApplicationController
     campaign = Campaign.new(params[:campaign])
     campaign.organizer_id = current_user.id
     campaign.save
-
     redirect_to campaign_path(campaign)
   end
 

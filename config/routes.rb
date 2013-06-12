@@ -17,6 +17,13 @@ Activist::Application.routes.draw do
   match '/users/my_recordings_list' => 'users#my_recordings_list', :as => :my_recordings_list
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  as :user do
+    if Rails.env.test?
+      get '/logout' => 'devise/sessions#destroy', as: :destroy_user_session
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

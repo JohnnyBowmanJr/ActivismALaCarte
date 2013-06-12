@@ -91,7 +91,21 @@ div.sort-options{
     float: right;
     color: grey;
   }
+}
+//overwrite Foundation's styling for the datepicker header, which
+//looks buggy out of the box.
+div#ui-datepicker-div{
+  span.ui-icon-circle-triangle-e{
+    margin-left: 10px;
+  }
 
+  div.ui-datepicker-header {
+    background: whitesmoke;
+    border: solid 1px #dddddd;
+    div.ui-datepicker-title{
+      margin-top: 5px;
+    }
+  }
 }
 
 

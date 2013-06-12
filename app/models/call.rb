@@ -16,4 +16,24 @@ class Call < ActiveRecord::Base
     {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at, 'target_name' => target_name}
   end
 
+  def get_recording_info(twilio_id, call_duration)
+    self.duration = call_duration
+    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+    recordings_info = client.account.calls.get(twilio_id).recordings
+    self.recording_url = recordings_info.list.first.mp3
+    self.recording = recordings_info.list.first.sid
+    self.save
+  end
+
+  def twilio_token(id)
+    self.campaign_id = id
+    self.target_name = self.campaign.target_name
+    capability = Twilio::Util::Capability.new ACCOUNT_SID, AUTH_TOKEN
+    capability.allow_client_outgoing "APc47ff3822652f09502959b08335d24a7"
+    capability.allow_client_incoming DEFAULT_CLIENT
+    self.token = capability.generate
+  end
+
+
+
 end

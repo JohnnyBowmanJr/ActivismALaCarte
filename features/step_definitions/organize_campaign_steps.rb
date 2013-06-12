@@ -22,7 +22,11 @@ Then(/^I should have a new campaign$/) do
 end
 
 Given(/^I am already logged in with email address "(.*?)"$/) do |email|
-  visit '/users/sign_up'
+  visit '/logout'
+  visit '/'
+  click_link('Login')
+  # let!(:rendered) { render :partial => 'devise/sessions/new' }
+  save_and_open_page
   fill_in 'Email', :with => email 
   fill_in 'Password', :with => "password"
   fill_in 'Password confirmation', :with => "password"

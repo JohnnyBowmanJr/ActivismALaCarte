@@ -27,13 +27,7 @@ class User < ActiveRecord::Base
         password:Devise.friendly_token[0,20]
         )
     end
-
-    #user.update_attributes(access_token:auth['credentials']['token'])
-    #user.update_attributes(image_url:user.facebook_profile_large)
-    #user.update_attributes(image_url_small:user.facebook_profile_small)
-
     user
   end
-
 
 end

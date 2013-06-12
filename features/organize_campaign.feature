@@ -13,10 +13,8 @@ Scenario: Create a campaign
 @wip
 Scenario: Monitor a campaign
   Given I am logged in as user "Save the Trees"
-  And I am on my campaign index page
+  And I am on the My Campaigns page
   Then I should see the number of phone calls the first campaign has had
   And I should see the number of calls per day for the last week
   And I should see a feed of all users who have recently made phone calls for my campaigns.
-  And I should see what percentage of my goal I've reached
-  And I should see the average call time per campaign
 

@@ -1,8 +1,12 @@
 require 'machinist/active_record'
 
 Campaign.blueprint do
-  title { Faker::Company.catch_phrase }
+  target_name { Faker::Name.name }
+  action { Faker::Company.catch_phrase }
   description { Faker::Lorem.paragraphs(2).join(" ")}
+  phone_number { Faker::PhoneNumber.phone_number }
+  organizer_id { User.make!.id}
+
 end
 
 User.blueprint do

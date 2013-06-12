@@ -30,6 +30,7 @@ group :test do
   gem "shoulda-matchers"
   gem 'launchy'
   gem 'poltergeist'
+  gem "mocha", :require => false
 end
 
 group :test, :development do

@@ -46,13 +46,16 @@ app.views.CallView = Backbone.View.extend({
     var campaign_id = window.location.pathname.split('/').pop();
     var call = new app.models.Call({campaign_id: campaign_id});
 
+    //on clicking submit, fetch call and user data
     call.fetch({
       success: function(call) {
-        // append phone number to 
-        // get the phone number to connect the call to
+        //check to see if user if logged in. If not, display login modal 
         if(call.attributes.user_id === null) {
           $('#sign-in-modal').foundation('reveal', 'open');
-        }else{
+        }
+        // if logged in, connect to Twilio app, which will POST
+        // params to campaigns#voice  
+        else{
           params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
           Twilio.Device.connect(params);
           $('button.call').toggle();
@@ -67,8 +70,5 @@ app.views.CallView = Backbone.View.extend({
     Twilio.Device.disconnectAll();
     $('button.hangup').toggle();
     $('button.call').toggle();
-    //find call sid for call that just happened
-    //search for recording by call sid
-    //save recording to database
   }
 });
