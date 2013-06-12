@@ -2,6 +2,9 @@
   <p id="homepage-plea">We need you to call</p>
 </div>
 <div class="row">
+  <div class="sort-options large-12 columns">
+    <%= link_to 'Popular', campaigns_path(:order => :popularity) %> | <%= link_to 'Most Recent', campaigns_path(:order => :most_recent) %> | <%= link_to 'Expiring Soon', campaigns_path(:order => :expiring_soon) %>
+  </div>
   <ul class="large-block-grid-3 index-grid">
     <% @campaigns.each do |campaign| %>
       <%= render :partial => 'campaign', :locals => { :campaign => campaign } %>

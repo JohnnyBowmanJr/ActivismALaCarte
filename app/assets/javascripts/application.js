@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require parsley
 //= require foundation
 //= require underscore-min
 //= require soundmanager2

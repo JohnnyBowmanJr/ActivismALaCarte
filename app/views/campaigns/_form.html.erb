@@ -1,48 +1,57 @@
-<div class="campaign-form">
-  <%= form_for(@campaign, :multipart => true) do |f| %>
+
+<div class="campaign-form" >
+  <div class="form-errors"></div>
+
+  <%= form_for(@campaign, :multipart => true, :html => {'data-validate' => "parsley"}) do |f| %>
    
     <div class= "field" >
       <%= f.label :target_name, "Which public official should people call?"  %><br />
-      <%= f.text_field :target_name %>
+      <%= f.text_field :target_name, :data => {:required => "true"}%>
     </div> 
 
     <div class="field">
       <%= f.label :phone_number, "What is the official's public phone number?"  %><br />
-      <%= f.telephone_field :phone_number %>
+      <%= f.telephone_field :phone_number, :data => {:required => "true"} %>
     </div>
     
-    <div class="field">
+    <div class="field action-label">
       <%= f.label :action, "What do you want him/her to do?" %>
-      <%= f.text_field :action %>
+      <div id="char-container">
+        <div id="characters-left">100</div> 
+        characters left
+      </div>
+      <%= f.text_field :action, :data => {:required => "true", :maxlength => "100"} %>
     </div>
 
     <div class="field">
-      <%= f.label :description, "Why should people call?" %>
-      <%= f.text_area :description %>
+      <%= f.label :description, "Why should people call?" %> 
+      <%= f.text_area :description, :data => {:required => "true"} %>
     </div>
 
     <div class="field">
       <%= f.label :start_date, "When should this campaign start?" %>
-      <%= f.text_field :start_date %>
+      <%= f.text_field :start_date, :data => {:required => "true"} %>
     </div>
 
     <div class="field">
       <%= f.label :end_date, "When should it end?" %>
-      <%= f.text_field :end_date %>
+      <%= f.text_field :end_date, :data => {:required => "true"} %>
     </div>
 
     <div class="field">
       <%= f.label :image, "Please upload a photo associated with your campaign" %>
-      <%= f.file_field :image, :class => "button tiny secondary" %>
+      <%= f.file_field :image, :class => "button tiny secondary", :data => {:required => "true"} %>
     </div>
       
     <%= f.submit "Done", :class => "button submit" %>
   <% end %>
 </div>
-
 <script>
- $(function() {
-    $( "input#campaign_start_date" ).datepicker();
-    $( "input#campaign_end_date" ).datepicker();
-  });
+    $("input#campaign_start_date").datepicker();
+    $("input#campaign_end_date").datepicker();
+    $("input#campaign_action").keyup(function(){
+      var chars = $("input#campaign_action").val().length;
+      var chars_left = String(100 - chars);
+      $("#characters-left").html(chars_left);
+    });
 </script>

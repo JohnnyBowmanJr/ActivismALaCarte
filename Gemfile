@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem "aws-s3", "~> 0.6.3"
 gem "fog", "~> 1.11.1"
+gem "parsley-rails"
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'

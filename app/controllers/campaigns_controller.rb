@@ -1,8 +1,16 @@
 class CampaignsController < ApplicationController
 
   def index
-    @user = current_user
-    @campaigns = Campaign.all
+    case params[:order]
+    when "popularity"
+      @campaigns = Campaign.find(:all, :include => 'calls')
+      @campaigns = @campaigns.sort { |a,b| b.calls.count <=> a.calls.count }
+
+    when "most_recent"
+      @campaigns = Campaign.find(:all, :order => :created_at, :limit => 9).reverse
+    else
+      @campaigns = Campaign.find(:all, :order => :created_at, :limit => 9)
+    end
     render :index
   end
 

@@ -11,6 +11,11 @@
   color: #9e7317;
 }
 
+div.sort-options{
+  margin-bottom: 1em;
+  text-align: right;
+}
+
 .large-block-grid-3 {
 
   div.campaign-tile-container {
@@ -66,4 +71,29 @@
     margin: 0 auto 0 auto;
     background: #e89e20;
   }
+  .parsley-success{
+    background-color: #c9efb8;
+    border-color: #336b1b;
+  }
+  .parsley-error{
+    background-color: #fcbaba;
+    border-color: #9e5555;
+  }
+  .parsley-error-list li{
+    list-style-type: none;
+    font-size: 12px;
+    color: red;
+    margin-top: -10px;
+  }
+  div#char-container, div#characters-left, div.action-label label{
+    display: inline-block;
+  }
+  div#char-container{
+    float: right;
+    color: grey;
+  }
+
 }
+
+
+
