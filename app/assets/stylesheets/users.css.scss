@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Sign-in and sign-up modals
-
+.top-bar-section ul {
+  background: #222222;
+}
 
 div#sign-in-modal, div#sign-up-modal{
 
@@ -27,14 +29,14 @@ div#sign-in-modal, div#sign-up-modal{
 div.campaign-window{
   margin-bottom: 2em;
   .title h4, .title a{
-    display: inline-block;
+    display: inline;
   }
 
   .title a{
     margin-left: 1em;
   }
  
-  img {
+  img, .campaign-facts {
     margin-top: 1em;
   }
   h5 {
@@ -42,6 +44,9 @@ div.campaign-window{
   }
   .call-chart {
     height: 200px;
+  }
+  .call-recording{
+    margin-bottom: 10px;
   }
   a.sm2_button {
     position:relative;

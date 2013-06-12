@@ -56,7 +56,7 @@ app.views.CallView = Backbone.View.extend({
           params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
           Twilio.Device.connect(params);
           $('button.call').toggle();
-          $('button.hangup').toggle();
+          $('button.hangup').css("display", "block");
         }
       }
     });
@@ -65,6 +65,8 @@ app.views.CallView = Backbone.View.extend({
   /* A function to end a connection to Twilio. */
   hangup: function() {
     Twilio.Device.disconnectAll();
+    $('button.hangup').toggle();
+    $('button.call').toggle();
     //find call sid for call that just happened
     //search for recording by call sid
     //save recording to database

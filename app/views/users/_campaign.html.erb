@@ -3,7 +3,7 @@
     <div class="title large-12 columns">
       <h4><%= campaign.target_name %>: <%= campaign.action %></h4>
       <%= link_to "Edit", edit_campaign_path(campaign.id) %>
-      <div class="calls-length">
+      <div class="campaign-facts">
         Total Calls: <%=campaign.calls.length %>
       </div>
     </div>
@@ -13,15 +13,17 @@
       <%= image_tag(campaign.image.thumb.url) %>
     </div>
     <div class="calls-number large-5 columns">
-      <h5>Total Calls Last Week</h5>
+      <h5>Calls During Last Week</h5>
       <div id="call-chart-<%=campaign.id%>" class="call-chart"></div>
     </div>
     <div class="large-3 columns" id="recordings-panel" data-user= "<%=@user_id %>" >
       <h6>Recordings</h6>
       <% campaign.calls.each do |call| %>
         <% if call.recording_url %>
-          <%= link_to "Play Recording", call.recording_url, :title => "Play Recording", :class => "sm2_button" %> 
-          <%= call.user.email %>
+          <div class="call-recording">
+            <%= link_to "Play Recording", call.recording_url, :title => "Play Recording", :class => "sm2_button" %> 
+            <%= call.user.email %>
+          </div>
         <% end %>
       <% end %>
       <% if campaign.calls.length == 0 %>
@@ -29,5 +31,6 @@
       <% end %>
     </div>
   </div>
+  <hr />
 </div>
     
