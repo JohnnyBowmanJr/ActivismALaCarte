@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Sign-in and sign-up modals
-.top-bar-section ul {
-  background: #222222;
+.dropdown{
+  border: solid 1px #ccc;
+  background-color: whitesmoke;
+  border-top: none;
 }
+
+.title-area span{
+  color: #de5605;
+}
+
+
+// Sign-in and sign-up modals
+
 
 div#sign-in-modal, div#sign-up-modal{
 
