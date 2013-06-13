@@ -17,6 +17,7 @@ app.Router = Backbone.Router.extend({
   },
 
   myCampaigns: function() {
+    $('body').addClass("white-background");
     var myRecordingsList = new app.collections.MyRecordingsList();
     //var userId = $('#recordings-panel').attr('data-user');
     //get user_id from DOM?

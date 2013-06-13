@@ -2,13 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+background: rgb(247,247,247); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(247,247,247,1) 17%, rgba(244,194,137,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(17%,rgba(247,247,247,1)), color-stop(100%,rgba(244,194,137,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(244,194,137,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(244,194,137,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(244,194,137,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(247,247,247,1) 17%,rgba(244,194,137,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f4c289',GradientType=0 ); /* IE6-9 */
+}
+
 // Homepage
 #homepage-plea {
   font-size: 6em;
   font-weight: bold;
   text-align: center;
   margin-bottom: 1em;
-  color: #2ba6cb;
+  color: #5b5541;
 }
 
 div.sort-options{
@@ -39,6 +50,7 @@ div.sort-options{
 
 //Campaign show page
 .campaign-show-page {
+  background-color: #f7f7f7;
   img {
     width: 100%;
     margin-bottom: 1em;
@@ -63,6 +75,7 @@ div.sort-options{
 
 //Campaign new and edit pages
 .campaign-form-page {
+  background-color: #f7f7f7;
   h2 {
     text-align: center;
   }
