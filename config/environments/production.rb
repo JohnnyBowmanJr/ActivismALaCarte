@@ -6,6 +6,7 @@ Activist::Application.configure do
   DEFAULT_CLIENT = 'johnny'
   # Settings specified here will take precedence over those in config/application.rb
 
+  config.assets.precompile += %w( backbone.js )
   config.action_mailer.default_url_options = { :host => 'johnnybowman' }
   # Code is not reloaded between requests
   config.cache_classes = true
