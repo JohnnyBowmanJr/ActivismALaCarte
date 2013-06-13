@@ -24,33 +24,37 @@
 
     <div class="field">
       <%= f.label :description, "Why should people call?" %> 
-      <%= f.text_area :description, :data => {:required => "true"} %>
+      <%= f.text_area :description, :data => {:required => "true", :notblank => "true"} %>
     </div>
 
     <div class="field">
       <%= f.label :start_date, "When should this campaign start?" %>
-      <%= f.text_field :start_date, :data => {:required => "true"} %>
+      <%= f.text_field :start_date, :data => {:required => "true", :notblank => "true"} %>
     </div>
 
     <div class="field">
       <%= f.label :end_date, "When should it end?" %>
-      <%= f.text_field :end_date, :data => {:required => "true"} %>
+      <%= f.text_field :end_date, :data => {:required => "true", :notblank => "true"} %>
     </div>
 
     <div class="field">
       <%= f.label :image, "Please upload a photo associated with your campaign" %>
-      <%= f.file_field :image, :class => "button tiny secondary" %>
+      <%= f.file_field :image, :class => "button tiny secondary", :id => "image-upload" %>
     </div>
       
     <%= f.submit "Done", :class => "button submit" %>
   <% end %>
 </div>
 <script>
-    $("input#campaign_start_date").datepicker();
-    $("input#campaign_end_date").datepicker();
-    $("input#campaign_action").keyup(function(){
-      var chars = $("input#campaign_action").val().length;
-      var chars_left = String(100 - chars);
-      $("#characters-left").html(chars_left);
-    });
+  $("input#campaign_start_date").datepicker();
+  $("input#campaign_end_date").datepicker();
+  $("input#campaign_action").keyup(function(){
+    var chars = $("input#campaign_action").val().length;
+    var chars_left = String(100 - chars);
+    $("#characters-left").html(chars_left);
+  });
+  var is_new = window.location.pathname.split('/').pop();
+  if(is_new == "new"){
+      $("#image-upload").attr("data-required","true");
+  }
 </script>
