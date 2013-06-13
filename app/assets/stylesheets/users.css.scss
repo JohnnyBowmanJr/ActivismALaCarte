@@ -36,15 +36,23 @@ nav.top-bar{
 #content {
   min-height: 100%;
   height: auto !important;
-  margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto -46px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer, .push {
-  height: 25px; /* .push must be the same height as .footer */
+  height: 20px; /* .push must be the same height as .footer */
   background: whitesmoke;
 }
 
+.push{
+  border-top: solid 1px #ccc;
+}
 
-
+footer {
+  background: whitesmoke;
+  font-size: .9em;
+  color: #3f3f3f;
+}
 
 // Sign-in and sign-up modals
 
