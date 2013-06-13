@@ -1,3 +1,13 @@
+Given(/^I am already logged in as "(.*?)"$/) do |email|
+  User.create(:email => email, :password => "password", :password_confirmation => "password")
+  visit destroy_user_session_path
+  visit '/'
+  click_link('Login')
+  fill_in 'sign-in-email', :with => email 
+  fill_in 'sign-in-password', :with => "password"
+  click_button 'sign-in-button'
+end
+
 Given(/^I am on the create a campaign page$/) do
   visit '/campaigns/new'
 end
@@ -21,38 +31,10 @@ Then(/^I should have a new campaign$/) do
   assert_equal 1, Campaign.count
 end
 
-Given(/^I am already logged in with email address "(.*?)"$/) do |email|
-  visit '/logout'
-  visit '/'
-  click_link('Login')
-  # let!(:rendered) { render :partial => 'devise/sessions/new' }
-  save_and_open_page
-  fill_in 'Email', :with => email 
-  fill_in 'Password', :with => "password"
-  fill_in 'Password confirmation', :with => "password"
-  click_button 'Sign up'
-end
-
-Given(/^I am on my campaign index page$/) do
-  pending # express the regexp above with the code you wish you had
+Given(/^I am on the My Campaigns page$/) do
+  visit '/mycampaigns'
 end
 
 Then(/^I should see the number of phone calls the first campaign has had$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see the number of calls per day for the last week$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see a feed of all users who have recently made phone calls for my campaigns\.$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see what percentage of my goal I've reached$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see the average call time per campaign$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content("Total Calls:")
 end

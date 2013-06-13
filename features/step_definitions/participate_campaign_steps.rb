@@ -1,22 +1,5 @@
-Given(/^I am already logged in as "(.*?)"$/) do |email|
-  User.create(:email => email, :password => "password", :password_confirmation => "password")
-  visit '/users/sign_in'
-  fill_in 'user_email', :with => email 
-  fill_in 'user_password', :with => "password"
-  click_button 'Sign in'
-end
-
-Given(/^an organizer is registered with email "(.*?)"$/) do |email|
-  visit '/users/sign_up'
-  fill_in 'Email', :with => email 
-  fill_in 'Password', :with => "password"
-  fill_in 'Password confirmation', :with => "password"
-  click_button 'Sign up'
-end
-
 Given(/^the user signs out$/) do
-  visit '/'
-  click_link('Sign Out')
+  visit destroy_user_session_path
 end
 
 Given(/^creates a campaign with target "(.*?)" and phonenumber "(.*?)"$/) do |target, phone|
@@ -31,46 +14,21 @@ Given(/^creates a campaign with target "(.*?)" and phonenumber "(.*?)"$/) do |ta
 end
 
 Given(/^I am on the show page for campaign with target "(.*?)"$/) do |target|
-  id = Campaign.first.id
-  visit '/campaigns/' + id.to_s
+  visit campaign_path(Campaign.first.id)
 end
 
-Then(/^I should see "(.*?)" as the campaign target and "(.*?)" as the number$/) do |target, number|
-  save_and_open_page
-  # page.should have_content(target)
-  # page.should have_content(number)
+Then(/^I should see the campaign with "(.*?)" as the target and "(.*?)" as the number$/) do |target, number|
+  page.should have_content(target)
 end
+
+
 
 Given(/^I am on the campaign index page$/) do
   visit '/'
 end
 
-Then(/^I should see a list of all active campaigns$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I can sort the campaigns by most popular$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I can sort the campaigns by tag or issue$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I can sort the campaigns by expiration date$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^I am on the show page for campaign titled "(.*?)"$/) do |title|
-  visit ''
-end
-
-Then(/^I should see "(.*?)" as the campaign title$/) do |title|
-  pending # express the regexp above with the code you wish you had
-end
-
 Then(/^a description of the campaign$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content(Campaign.first.description)
 end
 
 Then(/^make a phone call to "(.*?)"$/) do |number|

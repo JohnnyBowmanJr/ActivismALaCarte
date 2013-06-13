@@ -13,7 +13,7 @@ describe Campaign do
     it "should give twilio response when given a number" do
       response = Campaign.create_twilio_response(@campaign.phone_number)
       expect(response.class).to eq(Twilio::TwiML::Response)
-      expect(response.text).to include("<Number>")
+      expect(response.text).to include("johnny")
     end
   end
 

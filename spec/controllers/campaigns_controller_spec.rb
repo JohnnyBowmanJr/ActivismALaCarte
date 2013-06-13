@@ -48,8 +48,7 @@ describe CampaignsController do
        "controller"=>"campaigns"}
       #call = Call.make!(:twilio_id => params["CallSid"])
       post 'callback', params
-      call = Call.new
-      call.stubs(:get_recording_info).with(:twilio_id, :params[:CallDuration]).returns(Call.make!)
+      Call.any_instance.stubs(:get_recording_info).with(:twilio_id, :params[:CallDuration]).returns(Call.make!)
       #Twilio::REST::Call.any_instance.stubs(:recordings).returns(r)
       post 'callback', params
       expect(Call.count).to eq(1)
