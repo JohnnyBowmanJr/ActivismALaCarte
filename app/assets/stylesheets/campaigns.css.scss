@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
+body {
   background: rgb(247,247,247); /* Old browsers */
   background: -moz-linear-gradient(top, rgba(247,247,247,1) 17%, rgba(237,226,215,1) 60%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(17%,rgba(247,247,247,1)), color-stop(60%,rgba(237,226,215,1))); /* Chrome,Safari4+ */
@@ -11,6 +11,26 @@ body{
   background: -ms-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(237,226,215,1) 60%); /* IE10+ */
   background: linear-gradient(to bottom, rgba(247,247,247,1) 17%,rgba(237,226,215,1) 60%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ede2d7',GradientType=0 ); /* IE6-9 */
+}
+
+#content {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+  height: 25px; /* .push must be the same height as .footer */
+  background: whitesmoke;
+}
+
+
+/*Opera Fix*/
+body:before {
+  content:"";
+  height:100%;
+  float:left;
+  width:0;
+  margin-top:-32767px;
 }
 
 nav.top-bar{

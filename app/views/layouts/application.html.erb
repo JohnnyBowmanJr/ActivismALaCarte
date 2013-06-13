@@ -44,6 +44,7 @@
   <section id ="content">
     <%= yield %>
   </div>
+  <%= render :partial => 'layouts/footer' %>
   
   <%= javascript_include_tag "backbone" if @backbone %>
 </body>
