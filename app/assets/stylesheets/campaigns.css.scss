@@ -56,6 +56,7 @@ div.sort-options{
 //Campaign show page
 .campaign-show-page {
   background-color: #f7f7f7;
+  padding-bottom: 7em;
   img {
     width: 100%;
     margin-bottom: 1em;
@@ -75,6 +76,18 @@ div.sort-options{
   }
   #log{
     text-align: center;
+  }
+}
+
+// Share modal
+div#next-steps{
+  text-align: center;
+  img{
+    display: block;
+    margin: 0 auto 0 auto;
+  }
+  div#fb-share-text{
+    margin: 2em 0 2em 0;
   }
 }
 

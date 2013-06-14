@@ -3,6 +3,7 @@ app.views.CallView = Backbone.View.extend({
   tagName: 'div',
   id: 'call-box',
   template: JST['templates/call'],
+  nextStepTemplate: JST['templates/next_steps'],
   events: {
     'click button.hangup' : 'hangup',
     'click button.call' : 'call'
@@ -70,5 +71,8 @@ app.views.CallView = Backbone.View.extend({
     Twilio.Device.disconnectAll();
     $('button.hangup').toggle();
     $('button.call').toggle();
+    var view = new app.views.NextStepsView();
+    $('#next-steps').html(view.render().el);
+    $('#next-steps').foundation('reveal', 'open');
   }
 });

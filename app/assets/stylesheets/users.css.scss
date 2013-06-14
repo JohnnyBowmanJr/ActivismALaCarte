@@ -36,11 +36,11 @@ nav.top-bar{
 #content {
   min-height: 100%;
   height: auto !important;
-  margin: 0 auto -46px; /* the bottom margin is the negative value of the footer's height */
+  margin: 0 auto -30px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .footer, .push {
-  height: 20px; /* .push must be the same height as .footer */
+  height: 30px; /* .push must be the same height as .footer */
   background: whitesmoke;
 }
 
@@ -76,6 +76,13 @@ div#sign-in-modal, div#sign-up-modal{
 }
 
 //My Campaign page
+.my-campaigns-page{
+  min-height: 500px;
+  .no-campaigns-text{
+    text-align: center;
+  }
+}
+
 .white-background{
   background: #f7f7f7;
 }

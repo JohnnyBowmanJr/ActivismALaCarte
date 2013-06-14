@@ -1,5 +1,12 @@
 <div class="my-campaigns-page">
-  <% @campaigns.each do |campaign| %>
-    <%= render :partial => "campaign", :locals => { :campaign => campaign }  %>
+  <% if @campaigns.length == 0 %>
+    <div class="no-campaigns-text">
+      <h4>You haven't created any call campaigns yet.</h4>
+      <h4>We can help you fix that. <%= link_to "Click here.", new_campaign_path %></h4>
+    </div>
+  <% else %>
+    <% @campaigns.each do |campaign| %>
+      <%= render :partial => "campaign", :locals => { :campaign => campaign }  %>
+    <% end %>
   <% end %>
 </div>

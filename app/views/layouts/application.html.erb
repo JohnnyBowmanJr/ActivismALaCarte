@@ -11,36 +11,7 @@
   <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
   <%= csrf_meta_tags %>
 <body>
-  <nav class="top-bar">
-    <ul class="title-area">
-    <!-- Title Area -->
-      <li class="name">
-        <h1><a href="/"><span>Act</span>ivate</a></h1>
-      </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li><%= link_to "Create a Campaign", new_campaign_path, :class => "button" %></li>
-        <li><%= link_to "Browse", campaigns_path %></a></li>
-        <% if current_user %>
-          <li><%= link_to "My Campaigns", mycampaigns_path %></a></li>
-          <li class="has-dropdown">
-            <%= link_to current_user.email, edit_user_registration_path %>
-            <ul class="dropdown">
-              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Login", new_user_session_path, :data => { :'reveal-id' => 'sign-in-modal' }%></li>
-        <% end %>
-      </ul>
-    </section>
-  </nav>
+  <%= render :partial => 'layouts/top_nav' %>
   <section id ="content">
     <%= yield %>
   </div>
@@ -51,4 +22,5 @@
 
 <%= render :partial => 'devise/sessions/new' %>
 <%= render :partial => 'devise/registrations/new' %>
+<%= render :partial => 'campaigns/next_steps' %>
 </html>
