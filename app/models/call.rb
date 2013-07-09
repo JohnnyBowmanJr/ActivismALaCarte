@@ -16,6 +16,9 @@ class Call < ActiveRecord::Base
     {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at, 'target_name' => target_name}
   end
 
+  # def as_json(options={})
+  #   {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at, 'target_name' => target_name}
+
   def get_recording_info(twilio_id, call_duration)
     self.duration = call_duration
     client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN

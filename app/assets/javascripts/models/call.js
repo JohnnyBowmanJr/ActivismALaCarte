@@ -5,12 +5,10 @@ app.models.Call = Backbone.Model.extend({
     if(!this.isNew()) {
       url += '/' + this.id;
     }
-    // else{
-    //   url += '/create'
-    // }
     return url;
   },
 
-  initialize: function() {
+  parse: function(response){
+    return response.caller_id;
   }
 });

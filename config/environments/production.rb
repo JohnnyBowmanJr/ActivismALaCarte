@@ -4,6 +4,7 @@ Activist::Application.configure do
   ACCOUNT_SID = 'AC3ecb799e792404580fe5e903b88d3929'
   AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
   DEFAULT_CLIENT = 'johnny'
+  TWILIO_APP_URL = 'http://blooming-island-5246.herokuapp.com/'
   # Settings specified here will take precedence over those in config/application.rb
 
   config.assets.precompile += %w( backbone.js )

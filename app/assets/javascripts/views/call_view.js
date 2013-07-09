@@ -3,7 +3,6 @@ app.views.CallView = Backbone.View.extend({
   tagName: 'div',
   id: 'call-box',
   template: JST['templates/call'],
-  nextStepTemplate: JST['templates/next_steps'],
   events: {
     'click button.hangup' : 'hangup',
     'click button.call' : 'call'
@@ -49,19 +48,14 @@ app.views.CallView = Backbone.View.extend({
 
     //on clicking submit, fetch call and user data
     call.fetch({
-      success: function(call) {
-        //check to see if user if logged in. If not, display login modal 
-        if(call.attributes.user_id === null) {
-          $('#sign-in-modal').foundation('reveal', 'open');
-        }
-        // if logged in, connect to Twilio app, which will POST
-        // params to campaigns#voice  
-        else{
-          params = {"PhoneNumber": call.attributes.number, "campaign_id": call.attributes.campaign_id, "user_id": call.attributes.user_id  };
-          Twilio.Device.connect(params);
-          $('button.call').toggle();
-          $('button.hangup').css("display", "block");
-        }
+      success: function(caller_id) {
+        var view = new app.views.ValidationView({
+          validation_code: caller_id.attributes.validation_code,
+          phone_number: caller_id.attributes.phone_number
+        });
+
+        $('#validation').html(view.render().el);
+        $('#validation').foundation('reveal', 'open');
       }
     });
   },
