@@ -8,13 +8,20 @@ Activist::Application.routes.draw do
     member do
       get 'get_token'
     end
-    resources :calls
+    resources :calls do
+      collection do
+        post 'callback'
+        post 'voice'
+      end
+    end
   end
 
   match 'mycampaigns' => 'users#mycampaigns', :as => :mycampaigns
   match 'mycampaigns/recordings' => 'users#my_recordings', :as => :myrecordings
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
   match '/users/my_recordings_list' => 'users#my_recordings_list', :as => :my_recordings_list
+
+  post '/campaigns/voice_test' => 'campaigns#voice_test', :as => :testvoice
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

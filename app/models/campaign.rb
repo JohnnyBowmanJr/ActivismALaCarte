@@ -37,6 +37,8 @@ class Campaign < ActiveRecord::Base
   
   belongs_to :organizer, :class_name => 'User', :foreign_key => :organizer_id
 
+  private 
+  
   def attributes
     {'action' => action, 'created_at' => created_at, 'end_date' => end_date, 'target_name' => target_name, 'calls' => calls, 'id' => id, 'today_calls' => today_calls, 'one_day_calls' => one_day_calls, 'two_days_calls' => two_days_calls, 'three_days_calls' => three_days_calls, 'four_days_calls' => four_days_calls, 'five_days_calls' => five_days_calls}
   end
@@ -44,8 +46,9 @@ class Campaign < ActiveRecord::Base
   def self.create_twilio_response(number)
     response = Twilio::TwiML::Response.new do |r|
       # Should be your Twilio Number or a verified Caller ID
-      caller_id = '+13109075542'
-      r.Dial :callerId => caller_id, :record => true do |d|
+      caller_id = '+13108041305'
+      #caller_id = '+13109075542'
+      r.Dial :callerId => caller_id, :record => false do |d|
         # Test to see if the PhoneNumber is a number, or a Client ID. In
         # this case, we detect a Client ID by the presence of non-numbers
         # in the PhoneNumber parameter.

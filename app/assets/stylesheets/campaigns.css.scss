@@ -68,14 +68,35 @@ div.sort-options{
     line-height: 1.5em;
     margin-top: 1em;
   }
-  .call{
-    display: block;
-  } 
-  .hangup{
-    display: none;
-  }
-  #log{
+  #call-campaign-show{
     text-align: center;
+    .call{
+      display: block;
+    } 
+    .hangup{
+      display: none;
+    }
+    #log{
+      border: solid #BFBFBF 1px;
+      padding: 5px;
+      background-color: #ccc;
+      p{
+        margin: 0;
+      }
+    }
+    a#phone-instead{
+      display: block;
+      text-align: center;
+      font-size: .9em;
+      margin-top: -.8em;
+      margin-bottom: 1.5em;
+    }
+    #phone-field{
+      width: 195px;
+      margin: 0 auto 1.25em auto;
+      text-align: center;
+      display: none;
+    }
   }
 }
 
