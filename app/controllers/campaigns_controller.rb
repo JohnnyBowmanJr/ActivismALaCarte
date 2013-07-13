@@ -1,25 +1,5 @@
 class CampaignsController < ApplicationController
-  protect_from_forgery :except => :callback
-
-  def voice_test
-    binding.pry
-    response = Twilio::TwiML::Response.new do |r|
-      # Should be your Twilio Number or a verified Caller ID
-      caller_id = '+13108041305'
-      #caller_id = '+13109075542'
-      r.Dial :callerId => caller_id, :record => false do |d|
-        # Test to see if the PhoneNumber is a number, or a Client ID. In
-        # this case, we detect a Client ID by the presence of non-numbers
-        # in the PhoneNumber parameter.
-        if /^[\d\+\-\(\) ]+$/.match(number)
-            d.Number(CGI::escapeHTML number)
-        else
-            d.Client DEFAULT_CLIENT
-        end
-      end
-    end
-    render :xml => response.text
-  end
+  protect_from_forgery :except => [:callback]
 
   def index
     case params[:order]
@@ -61,7 +41,7 @@ class CampaignsController < ApplicationController
     binding.pry
     twilio_id = params[:CallSid]
     call = Call.where("twilio_id = ?", twilio_id).first
-    call.get_recording_info(twilio_id, params[:CallDuration] )
+    call.get_recording_info(twilio_id, params[:CallDuration])
     render :json => "callback success"
   end
 
@@ -74,7 +54,7 @@ class CampaignsController < ApplicationController
   def create
     campaign = Campaign.new(params[:campaign])
     campaign.organizer_id = current_user.id
-    campaign.save
+    campaign.save!
     redirect_to campaign_path(campaign)
   end
 

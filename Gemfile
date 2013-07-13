@@ -31,6 +31,7 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem "mocha", :require => false
+  gem "rack-test", :require => "rack/test"
 end
 
 group :test, :development do

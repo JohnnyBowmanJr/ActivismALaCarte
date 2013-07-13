@@ -37,6 +37,15 @@ class Call < ActiveRecord::Base
     self.token = capability.generate
   end
 
-
+  def self.check_verified(user)
+    @client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+      # Loop over caller_ids and print out a property for each one
+    @client.account.outgoing_caller_ids.list({
+        :phone_number => user.phone_number}).each do |caller_id|
+        binding.pry
+        is_verified = caller_id
+        binding.pry
+    end
+  end
 
 end

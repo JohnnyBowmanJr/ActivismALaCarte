@@ -11,14 +11,21 @@ Background:
 Scenario: Browse existing campaigns
   And I am already logged in as "user@email.com"
   And I am on the campaign index page
-  Then I should see the campaign with "Barack Obama" as the target and "5555555555" as the number
+  Then I should see the campaign with "Barack Obama" as the target
 
-@javascript
-Scenario: Making a phone call for a campaign
+
+Scenario: Choose a campaign
   Given I am already logged in as "user@email.com"
   And I am on the show page for campaign with target "Barack Obama" 
-  Then I should see the campaign with "Barack Obama" as the target and "5555555555" as the number
-  And a description of the campaign
-  And make a phone call to "555-555-5555"
+  Then I should see the campaign with "Barack Obama" as the target and a description of the campaign
+
+@javascript @wip @api
+Scenario: Making a campaign call
+  Given I am already logged in as "user@email.com"
+  And I am on the show page for campaign with target "Barack Obama" 
+  And I enter in my phone number
+  Then I should receive an initial call from Twilio
+  And then be connected to phone number '+15555555555'
+  
 
 

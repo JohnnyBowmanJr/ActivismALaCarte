@@ -1,9 +1,10 @@
 Activist::Application.configure do
-  FACEBOOK_APP_ID = '145612572295206'
-  FACEBOOK_APP_SECRET = '1911189fa5143725d3b9cd37678c9817'
+  FACEBOOK_APP_ID = '155124928007541'
+  FACEBOOK_APP_SECRET = '9b69b0cf2dc70ca931fb2646aff4f7dc'
   ACCOUNT_SID = 'AC3ecb799e792404580fe5e903b88d3929'
   AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
   DEFAULT_CLIENT = 'johnny'
+  TWILIO_APP_URL = 'http://3ymv.localtunnel.com/'
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

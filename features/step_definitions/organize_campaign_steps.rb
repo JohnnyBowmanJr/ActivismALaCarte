@@ -12,11 +12,6 @@ Given(/^I am on the create a campaign page$/) do
   visit '/campaigns/new'
 end
 
-Given "everythings fine" do
-  step "I am on the create a campaign page"
-  step "I fill in campaign details and click submit"
-end
-
 When(/^I fill in campaign details and click submit$/) do
   fill_in 'campaign_target_name', :with => "Barack Obama" 
   fill_in 'campaign_phone_number', :with => "5555555555"
@@ -24,6 +19,7 @@ When(/^I fill in campaign details and click submit$/) do
   fill_in 'campaign_description', :with => "Because dirt is dying"
   fill_in 'campaign_start_date', :with => "07/01/2013"
   fill_in 'campaign_end_date', :with => "07/03/2013"
+  attach_file("campaign[image]", File.join(RAILS_ROOT, 'features', 'uploads', 'fracking.jpg'))
   click_button 'Done'
 end
   

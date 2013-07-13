@@ -299,6 +299,7 @@ DEPENDENCIES
   poltergeist
   pry
   pry-debugger
+  rack-test
   rails (= 3.2.13)
   rspec-rails (~> 2.12)
   sass-rails (~> 3.2.3)
