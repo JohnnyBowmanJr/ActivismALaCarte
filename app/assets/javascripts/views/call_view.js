@@ -6,7 +6,7 @@ app.views.CallView = Backbone.View.extend({
   events: {
     'click a#phone-instead' : 'showPhone',
     'click button.hangup' : 'hangup',
-    'click button.call' : 'call'
+    'click button#call' : 'call'
   },
 
   render: function() {

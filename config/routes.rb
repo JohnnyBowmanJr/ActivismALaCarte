@@ -3,7 +3,7 @@ Activist::Application.routes.draw do
   resources :campaigns do
     collection do
       post 'voice'
-      get 'callback'
+      post 'callback'
     end
     member do
       get 'get_token'

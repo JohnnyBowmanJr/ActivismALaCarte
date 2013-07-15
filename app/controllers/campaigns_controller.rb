@@ -1,5 +1,4 @@
 class CampaignsController < ApplicationController
-  protect_from_forgery :except => [:callback]
 
   def index
     case params[:order]

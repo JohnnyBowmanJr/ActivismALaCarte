@@ -39,9 +39,9 @@ Given(/^I enter in my phone number$/) do
 end
 
 Then(/^I should receive an initial call from Twilio$/) do
-  post inbound_call_campaign_calls_path(Campaign.first.id)
+  click_button "call"
 end
 
 Then(/^then be connected to phone number '\+(\d+)'$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  binding.pry
 end
