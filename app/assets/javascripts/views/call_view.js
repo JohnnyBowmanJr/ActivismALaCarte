@@ -61,7 +61,8 @@ app.views.CallView = Backbone.View.extend({
     });
 
 
-    //on clicking submit, save call and user data
+    //on clicking submit, check to see if call is through Twilio connect or REST API
+    //then either do call.save or call.fetch (or something else)
     call.save({},{
       success: function(caller_id) {
         var view = new app.views.ValidationView({

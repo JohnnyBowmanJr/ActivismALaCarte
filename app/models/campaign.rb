@@ -43,23 +43,16 @@ class Campaign < ActiveRecord::Base
     {'action' => action, 'created_at' => created_at, 'end_date' => end_date, 'target_name' => target_name, 'calls' => calls, 'id' => id, 'today_calls' => today_calls, 'one_day_calls' => one_day_calls, 'two_days_calls' => two_days_calls, 'three_days_calls' => three_days_calls, 'four_days_calls' => four_days_calls, 'five_days_calls' => five_days_calls}
   end
 
-  def self.create_twilio_response(number)
-    response = Twilio::TwiML::Response.new do |r|
-      # Should be your Twilio Number or a verified Caller ID
-      caller_id = '+13108041305'
-      #caller_id = '+13109075542'
-      r.Dial :callerId => caller_id, :record => false do |d|
-        # Test to see if the PhoneNumber is a number, or a Client ID. In
-        # this case, we detect a Client ID by the presence of non-numbers
-        # in the PhoneNumber parameter.
-        if /^[\d\+\-\(\) ]+$/.match(number)
-            d.Number(CGI::escapeHTML number)
-        else
-            d.Client DEFAULT_CLIENT
-        end
+  def self.outbound_call_instructions(campaign_id)
+    target_phone = Campaign.find(campaign_id).phone_number
+    outbound_call = Twilio::TwiML::Response.new do |r|
+      r.Say 'Please hold while we connect your call. This call may be recorded for quality assurance', :voice => 'woman'
+      r.Dial :record => true do |d|
+        #change this for target_phone when target_phone format validation has been implemented
+        d.Number '+13105929048'
       end
     end
-    response
+    outbound_call
   end
 
   def self.calls_per_day(campaigns)

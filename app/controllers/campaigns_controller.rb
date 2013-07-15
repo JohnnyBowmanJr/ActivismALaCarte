@@ -30,10 +30,11 @@ class CampaignsController < ApplicationController
   # this post request to campaigns#voice runs when people click "call" and 
   # the Twilio.Device.connect(params); runs in call_view.js
   def voice
-    number = params[:PhoneNumber]
-    Call.create(:campaign_id => params[:campaign_id], :user_id => params[:user_id], :twilio_id => params[:CallSid])
-    response = Campaign.create_twilio_response(number)
-    render :xml => response.text
+    #Should I save call here or in the callback? Depends on whether current_user is available on #callback
+    #Call.create(:campaign_id => params[:campaign_id], :user_id => params[:user_id], :twilio_id => params[:CallSid])
+    campaign_id = params[:campaign_id]
+    outbound_call = Campaign.outbound_call_instructions(campaign_id)
+    render :xml => outbound_call.text
   end
 
   def callback

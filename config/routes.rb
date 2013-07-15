@@ -10,8 +10,8 @@ Activist::Application.routes.draw do
     end
     resources :calls do
       collection do
-        post 'voice'
-        post 'inbound_call'
+        post 'receive_inbound_call'
+        post 'callback'
       end
     end
   end
