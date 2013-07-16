@@ -1,38 +1,18 @@
 class Call < ActiveRecord::Base
-  include ActiveModel::Serializers::JSON
+
   attr_accessible :user_id, :campaign_id, :twilio_id, :recording, :duration, :recording_url
 
   attr_accessor :token, :number, :target_name
 
   belongs_to :user
   belongs_to :campaign
-  
-  # scope :today, where(:created_at => Date.today)
 
-  #take user_id out of this and call#index when implementing log-in system so that non-logged
-  #in users don't get an error when rendering show page. Instead user_id should append to DOM
-  #on login screen through modal instead of being passed this way.
-  def attributes
-    {'token' => token, 
-      'campaign_id' => campaign_id, 
-      'id' => id, 
-      'user_id' => user_id, 
-      'number' => number, 
-      'created_at' => created_at, 
-      'target_name' => target_name
-    }
+  # I think only used for get_token, which right now just uses. target_name, token, and current_user.
+  # I can delete the other stuff
+  def as_json(options={})
+    { 'token' => token, 'target_name' => target_name }
   end
 
-  # def as_json(options={})
-  #   {'token' => token, 
-  #     'campaign_id' => campaign_id, 
-  #     'id' => id, 
-  #     'user_id' => user_id, 
-  #     'number' => number, 
-  #     'created_at' => created_at, 
-  #     'target_name' => target_name
-  #   }
-  # end
   # this is hit from CallsController#create to make initial phone call to user before connecting them
   def self.make_inbound_call(caller_phone, campaign_id)
     client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN

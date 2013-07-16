@@ -5,7 +5,7 @@ Activist::Application.configure do
   AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
   APP_SID = 'AP123f795b7efddfd958bde327bc295def'
   DEFAULT_CLIENT = 'johnny'
-  TWILIO_APP_URL = 'http://3shz.localtunnel.com/'
+  TWILIO_APP_URL = 'http://4k2y.localtunnel.com/'
   # Settings specified here will take precedence over those in config/application.rb
 
   #allows devise to send emails in dev environment

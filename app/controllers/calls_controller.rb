@@ -11,7 +11,6 @@ class CallsController < ApplicationController
 
   # this is hit from Call.make_inbound_call in order to generate XML instructions for Twilio
   def receive_inbound_call
-    binding.pry
     campaign_id = params[:campaign_id]
     outbound_call = Campaign.outbound_call_instructions(campaign_id)
     render :xml => outbound_call.text
