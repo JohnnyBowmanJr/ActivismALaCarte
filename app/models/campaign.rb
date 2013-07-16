@@ -47,9 +47,9 @@ class Campaign < ActiveRecord::Base
     target_phone = Campaign.find(campaign_id).phone_number
     outbound_call = Twilio::TwiML::Response.new do |r|
       r.Say 'Please hold while we connect your call. This call may be recorded for quality assurance', :voice => 'woman'
-      r.Dial :record => true do |d|
+      r.Dial :callerId => "+13109075542", :record => true do |d|
         #change this for target_phone when target_phone format validation has been implemented
-        d.Number '+13105929048'
+        d.Number '+13365753860'
       end
     end
     outbound_call

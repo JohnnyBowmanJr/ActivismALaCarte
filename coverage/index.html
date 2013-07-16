@@ -14,27 +14,27 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-07-15T18:14:47-04:00">2013-07-15T18:14:47-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-07-15T23:04:19-04:00">2013-07-15T23:04:19-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">55.82%</span></span>
+    (<span class="covered_percent"><span class="red">57.09%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.65
+         0.66
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>27</b> files in total.
-    <b>292</b> relevant lines. 
-    <span class="green"><b>163</b> lines covered</span> and
-    <span class="red"><b>129</b> lines missed </span>
+    <b>296</b> relevant lines. 
+    <span class="green"><b>169</b> lines covered</span> and
+    <span class="red"><b>127</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,21 +62,21 @@
       
       <tr>
         <td class="strong"><a href="#cc725ffdfebce80d5ce75faae00e1bfeb25ca4a4" class="src_link" title="app/controllers/calls_controller.rb">app/controllers/calls_controller.rb</a></td>
-        <td class="red strong">21.05 %</td>
-        <td>37</td>
+        <td class="red strong">27.27 %</td>
         <td>19</td>
-        <td>4</td>
-        <td>15</td>
-        <td>0.2</td>
+        <td>11</td>
+        <td>3</td>
+        <td>8</td>
+        <td>0.3</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#7c0a5577f4069e4a6df871575ce3fa83c116a4e8" class="src_link" title="app/controllers/campaigns_controller.rb">app/controllers/campaigns_controller.rb</a></td>
-        <td class="red strong">22.73 %</td>
-        <td>76</td>
-        <td>44</td>
+        <td class="red strong">22.22 %</td>
+        <td>75</td>
+        <td>45</td>
         <td>10</td>
-        <td>34</td>
+        <td>35</td>
         <td>0.2</td>
       </tr>
       
@@ -92,12 +92,12 @@
       
       <tr>
         <td class="strong"><a href="#e56e75c6ab39631a70865b77eb3fba278c0250a2" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">30.77 %</td>
-        <td>21</td>
-        <td>13</td>
-        <td>4</td>
-        <td>9</td>
-        <td>0.3</td>
+        <td class="red strong">40.0 %</td>
+        <td>31</td>
+        <td>20</td>
+        <td>8</td>
+        <td>12</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
@@ -142,11 +142,11 @@
       
       <tr>
         <td class="strong"><a href="#f9d9227f7abd328c044017353370274d6d66deef" class="src_link" title="app/models/call.rb">app/models/call.rb</a></td>
-        <td class="red strong">38.46 %</td>
-        <td>54</td>
-        <td>26</td>
+        <td class="red strong">37.04 %</td>
+        <td>57</td>
+        <td>27</td>
         <td>10</td>
-        <td>16</td>
+        <td>17</td>
         <td>0.4</td>
       </tr>
       
@@ -303,9 +303,9 @@
       <tr>
         <td class="strong"><a href="#4368c9734bc1ff3daac147fc74043222797fca34" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>83</td>
-        <td>17</td>
-        <td>17</td>
+        <td>88</td>
+        <td>20</td>
+        <td>20</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -459,11 +459,11 @@
         <div class="source_table" id="cc725ffdfebce80d5ce75faae00e1bfeb25ca4a4">
   <div class="header">
     <h3>app/controllers/calls_controller.rb</h3>
-    <h4><span class="red">21.05 %</span> covered</h4>
+    <h4><span class="red">27.27 %</span> covered</h4>
     <div>
-      <b>19</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
-      <span class="red"><b>15</b> lines missed.</span>
+      <b>11</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -485,208 +485,100 @@
         <li class="never" data-hits="" data-linenumber="3">
           
           
-          <code class="ruby">  #skip_before_action :verify_authenticity_token, except: [:callback]</code>
+          <code class="ruby">  # this is hit when user inputs a phone number and clicks call</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby">  # call from call.fetch() in router.js. This gives back Twilio token and db data </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="5">
-          
-          
-          <code class="ruby">  # (phone number, user_id, and campaign_id)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
-          
-          
-          <code class="ruby">  #twilio calls the user's phone to verify the phone</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
+        <li class="missed" data-hits="0" data-linenumber="5">
           
           
           <code class="ruby">    campaign_id = Campaign.find(params[:campaign_id]).id</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="missed" data-hits="0" data-linenumber="6">
           
           
           <code class="ruby">    caller_phone = params[:phone_number]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
+        <li class="missed" data-hits="0" data-linenumber="7">
           
           
           <code class="ruby">    inbound_call = Call.make_inbound_call(caller_phone, campaign_id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="missed" data-hits="0" data-linenumber="8">
           
           
           <code class="ruby">    Call.create(:campaign_id =&gt; campaign_id, :user_id =&gt; current_user.id, :twilio_id =&gt; inbound_call.sid)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="14">
+        <li class="missed" data-hits="0" data-linenumber="9">
           
           
           <code class="ruby">    render :json =&gt; inbound_call.status</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  # this is hit from Call.make_inbound_call in order to generate XML instructions for Twilio</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">  def receive_inbound_call</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">    #Should I save call here or in the callback? Depends on whether current_user is available on #callback</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">    #Call.create(:campaign_id =&gt; params[:campaign_id], :user_id =&gt; params[:user_id], :twilio_id =&gt; params[:CallSid])</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="20">
+        <li class="missed" data-hits="0" data-linenumber="14">
           
           
           <code class="ruby">    campaign_id = params[:campaign_id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
           <code class="ruby">    outbound_call = Campaign.outbound_call_instructions(campaign_id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
           <code class="ruby">    render :xml =&gt; outbound_call.text</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def callback</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
-          
-          <code class="ruby">    user = User.find(current_user.id)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
-          
-          <code class="ruby">    binding.pry</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
-          
-          <code class="ruby">    twilio_id = params[:CallSid]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="31">
-          
-          
-          <code class="ruby">    Call.create(:campaign_id =&gt; params[:campaign_id], :user_id =&gt; current_user.id, :twilio_id =&gt; params[:CallSid])</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
-          
-          <code class="ruby">    call = Call.where(&quot;twilio_id = ?&quot;, twilio_id).first</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
-          
-          <code class="ruby">    call.get_recording_info(twilio_id, params[:Duration] )</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="34">
-          
-          
-          <code class="ruby">    render :json =&gt; &quot;callback success&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">end</code>
@@ -699,11 +591,11 @@
         <div class="source_table" id="7c0a5577f4069e4a6df871575ce3fa83c116a4e8">
   <div class="header">
     <h3>app/controllers/campaigns_controller.rb</h3>
-    <h4><span class="red">22.73 %</span> covered</h4>
+    <h4><span class="red">22.22 %</span> covered</h4>
     <div>
-      <b>44</b> relevant lines. 
+      <b>45</b> relevant lines. 
       <span class="green"><b>10</b> lines covered</span> and
-      <span class="red"><b>34</b> lines missed.</span>
+      <span class="red"><b>35</b> lines missed.</span>
     </div>
   </div>
   
@@ -899,25 +791,25 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">  def voice</code>
+          <code class="ruby">  def receive_browser_call</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="missed" data-hits="0" data-linenumber="33">
           
           
-          <code class="ruby">    #Should I save call here or in the callback? Depends on whether current_user is available on #callback</code>
+          <code class="ruby">    binding.pry</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="missed" data-hits="0" data-linenumber="34">
           
           
-          <code class="ruby">    #Call.create(:campaign_id =&gt; params[:campaign_id], :user_id =&gt; params[:user_id], :twilio_id =&gt; params[:CallSid])</code>
+          <code class="ruby">    campaign_id = params[:campaign_id]</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    campaign_id = params[:campaign_id]</code>
+          <code class="ruby">    Call.create(:campaign_id =&gt; campaign_id, :user_id =&gt; params[:user_id], :twilio_id =&gt; params[:CallSid])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="36">
@@ -971,25 +863,25 @@
         <li class="missed" data-hits="0" data-linenumber="44">
           
           
-          <code class="ruby">    binding.pry</code>
+          <code class="ruby">    call.get_recording_info(twilio_id, params[:CallDuration], params[:AnsweredBy])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="45">
           
           
-          <code class="ruby">    call.get_recording_info(twilio_id, params[:CallDuration])</code>
+          <code class="ruby">    render :json =&gt; &quot;callback success&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">    render :json =&gt; &quot;callback success&quot;</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
@@ -998,169 +890,163 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="51">
+        <li class="missed" data-hits="0" data-linenumber="50">
           
           
           <code class="ruby">    @campaign = Campaign.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="51">
           
           
           <code class="ruby">    render :new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="56">
+        <li class="missed" data-hits="0" data-linenumber="55">
           
           
           <code class="ruby">    campaign = Campaign.new(params[:campaign])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="56">
           
           
           <code class="ruby">    campaign.organizer_id = current_user.id</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
+        <li class="missed" data-hits="0" data-linenumber="57">
           
           
           <code class="ruby">    campaign.save!</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
+        <li class="missed" data-hits="0" data-linenumber="58">
           
           
           <code class="ruby">    redirect_to campaign_path(campaign)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="62">
+        <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="63">
+        <li class="missed" data-hits="0" data-linenumber="62">
           
           
           <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
           <code class="ruby">    render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="68">
+        <li class="missed" data-hits="0" data-linenumber="67">
           
           
           <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="69">
+        <li class="missed" data-hits="0" data-linenumber="68">
           
           
           <code class="ruby">    if @campaign.update_attributes(params[:campaign])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="70">
+        <li class="missed" data-hits="0" data-linenumber="69">
           
           
           <code class="ruby">      redirect_to @campaign, notice: 'Success! Your campaign is updated.'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="72">
+        <li class="missed" data-hits="0" data-linenumber="71">
           
           
           <code class="ruby">      render action: &quot;edit&quot;, notice: 'Oops, your campaign was not able to be updated. Check for funny characters in your description and please try again'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">end</code>
@@ -1281,11 +1167,11 @@
         <div class="source_table" id="e56e75c6ab39631a70865b77eb3fba278c0250a2">
   <div class="header">
     <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">30.77 %</span> covered</h4>
+    <h4><span class="red">40.0 %</span> covered</h4>
     <div>
-      <b>13</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
-      <span class="red"><b>9</b> lines missed.</span>
+      <b>20</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>12</b> lines missed.</span>
     </div>
   </div>
   
@@ -1412,7 +1298,67 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def is_logged_in</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    binding.pry</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    user = User.new</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    if current_user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">      user.id = current_user.id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="27">
+          
+          
+          <code class="ruby">      user.id = &quot;not logged in&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">    render :json =&gt; user</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">end</code>
@@ -1647,11 +1593,11 @@
         <div class="source_table" id="f9d9227f7abd328c044017353370274d6d66deef">
   <div class="header">
     <h3>app/models/call.rb</h3>
-    <h4><span class="red">38.46 %</span> covered</h4>
+    <h4><span class="red">37.04 %</span> covered</h4>
     <div>
-      <b>26</b> relevant lines. 
+      <b>27</b> relevant lines. 
       <span class="green"><b>10</b> lines covered</span> and
-      <span class="red"><b>16</b> lines missed.</span>
+      <span class="red"><b>17</b> lines missed.</span>
     </div>
   </div>
   
@@ -1784,199 +1730,217 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  # this is hit from CallsController#create to make initial phone call to user before connecting them</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.make_inbound_call(caller_phone, campaign_id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
+        <li class="missed" data-hits="0" data-linenumber="24">
           
           
           <code class="ruby">    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="25">
           
           
           <code class="ruby">    inbound_call = client.account.calls.create(</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">      :from =&gt; &quot;+13109075542&quot;,   # From your Twilio number</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">      :to =&gt; caller_phone,     # To any number</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">      :url =&gt; TWILIO_APP_URL + 'campaigns/' + campaign_id.to_s + '/calls/receive_inbound_call',</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">      :method =&gt; &quot;POST&quot;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">      :record =&gt; 'false',</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby">      :status_callback =&gt; TWILIO_APP_URL + 'campaigns/callback/',</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">      :status_callback_method =&gt; &quot;POST&quot;</code>
+          <code class="ruby">      :IfMachine =&gt; &quot;Continue&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">    )</code>
+          <code class="ruby">      :status_callback =&gt; TWILIO_APP_URL + 'campaigns/callback/',</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">    inbound_call</code>
+          <code class="ruby">      :status_callback_method =&gt; &quot;POST&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
+          <code class="ruby">    )</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
+          
+          <code class="ruby">    inbound_call</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">  def get_recording_info(twilio_id, call_duration)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="37">
-          
-          
-          <code class="ruby">    self.duration = call_duration</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
-          
-          <code class="ruby">    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN</code>
+          <code class="ruby">  def get_recording_info(twilio_id, call_duration, answered_by)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">    recordings_info = client.account.calls.get(twilio_id).recordings</code>
+          <code class="ruby">    self.duration = call_duration</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="40">
           
           
-          <code class="ruby">    self.recording_url = recordings_info.list.first.mp3</code>
+          <code class="ruby">    client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="41">
           
           
-          <code class="ruby">    self.recording = recordings_info.list.first.sid</code>
+          <code class="ruby">    recordings_info = client.account.calls.get(twilio_id).recordings</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="42">
           
           
+          <code class="ruby">    self.recording_url = recordings_info.list.first.mp3</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">    self.recording = recordings_info.list.first.sid</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="44">
+          
+          
+          <code class="ruby">    self.answered_by = answered_by</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="45">
+          
+          
           <code class="ruby">    self.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
           <code class="ruby">  def twilio_token(id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
+        <li class="missed" data-hits="0" data-linenumber="49">
           
           
           <code class="ruby">    self.campaign_id = id</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
+        <li class="missed" data-hits="0" data-linenumber="50">
           
           
           <code class="ruby">    self.target_name = self.campaign.target_name</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
+        <li class="missed" data-hits="0" data-linenumber="51">
           
           
           <code class="ruby">    capability = Twilio::Util::Capability.new ACCOUNT_SID, AUTH_TOKEN</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
+        <li class="missed" data-hits="0" data-linenumber="52">
           
           
           <code class="ruby">    capability.allow_client_outgoing &quot;APc47ff3822652f09502959b08335d24a7&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
+        <li class="missed" data-hits="0" data-linenumber="53">
           
           
           <code class="ruby">    capability.allow_client_incoming DEFAULT_CLIENT</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="51">
+        <li class="missed" data-hits="0" data-linenumber="54">
           
           
           <code class="ruby">    self.token = capability.generate</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby">end</code>
@@ -2297,7 +2261,7 @@
         <li class="missed" data-hits="0" data-linenumber="50">
           
           
-          <code class="ruby">      r.Dial :record =&gt; false do |d|</code>
+          <code class="ruby">      r.Dial :record =&gt; true do |d|</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
@@ -2309,7 +2273,7 @@
         <li class="missed" data-hits="0" data-linenumber="52">
           
           
-          <code class="ruby">        d.Number '+13105929048'</code>
+          <code class="ruby">        d.Number '+13108041305'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="53">
@@ -3635,7 +3599,7 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">  TWILIO_APP_URL = 'http://3ijw.localtunnel.com/'</code>
+          <code class="ruby">  TWILIO_APP_URL = 'http://3xxt.localtunnel.com/'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
@@ -5927,8 +5891,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>17</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
+      <b>20</b> relevant lines. 
+      <span class="green"><b>20</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5963,7 +5927,7 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">      post 'voice'</code>
+          <code class="ruby">      post 'receive_browser_call'</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -6038,34 +6002,34 @@
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  resources :users do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">  match 'mycampaigns' =&gt; 'users#mycampaigns', :as =&gt; :mycampaigns</code>
+          <code class="ruby">    collection do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">  match 'mycampaigns/recordings' =&gt; 'users#my_recordings', :as =&gt; :myrecordings</code>
+          <code class="ruby">      get 'is_logged_in'</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="21">
           
-          <code class="ruby">  match '/users/my_recording' =&gt; 'users#my_recording', :as =&gt; :myrecording</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="22">
           
-          <code class="ruby">  match '/users/my_recordings_list' =&gt; 'users#my_recordings_list', :as =&gt; :my_recordings_list</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -6077,358 +6041,388 @@
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">  devise_for :users, :controllers =&gt; { :omniauth_callbacks =&gt; &quot;users/omniauth_callbacks&quot; }</code>
+          <code class="ruby">  match 'mycampaigns' =&gt; 'users#mycampaigns', :as =&gt; :mycampaigns</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  match 'mycampaigns/recordings' =&gt; 'users#my_recordings', :as =&gt; :myrecordings</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  match '/users/my_recording' =&gt; 'users#my_recording', :as =&gt; :myrecording</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # The priority is based upon order of creation:</code>
+          <code class="ruby">  match '/users/my_recordings_list' =&gt; 'users#my_recordings_list', :as =&gt; :my_recordings_list</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby">  # first created -&gt; highest priority.</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  devise_for :users, :controllers =&gt; { :omniauth_callbacks =&gt; &quot;users/omniauth_callbacks&quot; }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">  # Sample of regular route:</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">  #   match 'products/:id' =&gt; 'catalog#view'</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">  # Keep in mind you can assign values other than :controller and :action</code>
+          <code class="ruby">  # The priority is based upon order of creation:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # first created -&gt; highest priority.</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">  # Sample of named route:</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">  #   match 'products/:id/purchase' =&gt; 'catalog#purchase', :as =&gt; :purchase</code>
+          <code class="ruby">  # Sample of regular route:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">  # This route can be invoked with purchase_url(:id =&gt; product.id)</code>
+          <code class="ruby">  #   match 'products/:id' =&gt; 'catalog#view'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # Keep in mind you can assign values other than :controller and :action</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">  # Sample resource route (maps HTTP verbs to controller actions automatically):</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">  #   resources :products</code>
+          <code class="ruby">  # Sample of named route:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #   match 'products/:id/purchase' =&gt; 'catalog#purchase', :as =&gt; :purchase</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">  # Sample resource route with options:</code>
+          <code class="ruby">  # This route can be invoked with purchase_url(:id =&gt; product.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">  #   resources :products do</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">  #     member do</code>
+          <code class="ruby">  # Sample resource route (maps HTTP verbs to controller actions automatically):</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">  #       get 'short'</code>
+          <code class="ruby">  #   resources :products</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">  #       post 'toggle'</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">  #     end</code>
+          <code class="ruby">  # Sample resource route with options:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">  #   resources :products do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">  #     collection do</code>
+          <code class="ruby">  #     member do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">  #       get 'sold'</code>
+          <code class="ruby">  #       get 'short'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby">  #     end</code>
+          <code class="ruby">  #       post 'toggle'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  #     end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="53">
           
           
-          <code class="ruby">  # Sample resource route with sub-resources:</code>
+          <code class="ruby">  #     collection do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">  #   resources :products do</code>
+          <code class="ruby">  #       get 'sold'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">  #     resources :comments, :sales</code>
+          <code class="ruby">  #     end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
-          <code class="ruby">  #     resource :seller</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="58">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # Sample resource route with sub-resources:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">  # Sample resource route with more complex sub-resources</code>
+          <code class="ruby">  #   resources :products do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">  #   resources :products do</code>
+          <code class="ruby">  #     resources :comments, :sales</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">  #     resources :comments</code>
+          <code class="ruby">  #     resource :seller</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
           
           
-          <code class="ruby">  #     resources :sales do</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby">  #       get 'recent', :on =&gt; :collection</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
-          <code class="ruby">  #     end</code>
+          <code class="ruby">  # Sample resource route with more complex sub-resources</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  #   resources :products do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #     resources :comments</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">  # Sample resource route within a namespace:</code>
+          <code class="ruby">  #     resources :sales do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby">  #   namespace :admin do</code>
+          <code class="ruby">  #       get 'recent', :on =&gt; :collection</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="69">
           
           
-          <code class="ruby">  #     # Directs /admin/products/* to Admin::ProductsController</code>
+          <code class="ruby">  #     end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
           
           
-          <code class="ruby">  #     # (app/controllers/admin/products_controller.rb)</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="71">
           
           
-          <code class="ruby">  #     resources :products</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="72">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  # Sample resource route within a namespace:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #   namespace :admin do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="74">
           
           
-          <code class="ruby">  # You can have the root of your site routed with &quot;root&quot;</code>
+          <code class="ruby">  #     # Directs /admin/products/* to Admin::ProductsController</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="75">
           
           
-          <code class="ruby">  # just remember to delete public/index.html.</code>
+          <code class="ruby">  #     # (app/controllers/admin/products_controller.rb)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="76">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="76">
           
-          <code class="ruby">  root :to =&gt; 'campaigns#index'</code>
+          
+          <code class="ruby">  #     resources :products</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="77">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="78">
           
           
-          <code class="ruby">  # See how all your routes lay out with &quot;rake routes&quot;</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # You can have the root of your site routed with &quot;root&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
           
           
-          <code class="ruby">  # This is a legacy wild controller route that's not recommended for RESTful applications.</code>
+          <code class="ruby">  # just remember to delete public/index.html.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="covered" data-hits="1" data-linenumber="81">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # Note: This route will make all actions in every controller accessible via GET requests.</code>
+          <code class="ruby">  root :to =&gt; 'campaigns#index'</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="82">
           
           
-          <code class="ruby">  # match ':controller(/:action(/:id))(.:format)'</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby">  # See how all your routes lay out with &quot;rake routes&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="84">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">  # This is a legacy wild controller route that's not recommended for RESTful applications.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">  # Note: This route will make all actions in every controller accessible via GET requests.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby">  # match ':controller(/:action(/:id))(.:format)'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby">end</code>

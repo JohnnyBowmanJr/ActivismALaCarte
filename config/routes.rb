@@ -2,7 +2,7 @@ Activist::Application.routes.draw do
 
   resources :campaigns do
     collection do
-      post 'voice'
+      post 'receive_browser_call'
       post 'callback'
     end
     member do
@@ -13,6 +13,11 @@ Activist::Application.routes.draw do
         post 'receive_inbound_call'
         post 'callback'
       end
+    end
+  end
+  resources :users do
+    collection do
+      get 'is_logged_in'
     end
   end
 

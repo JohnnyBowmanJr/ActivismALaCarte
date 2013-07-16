@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709201439) do
+ActiveRecord::Schema.define(:version => 20130715223930) do
 
   create_table "calls", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130709201439) do
     t.string   "twilio_id"
     t.integer  "duration"
     t.string   "recording_url"
+    t.string   "answered_by"
   end
 
   create_table "campaigns", :force => true do |t|

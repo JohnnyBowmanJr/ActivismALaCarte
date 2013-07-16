@@ -43,5 +43,12 @@ Then(/^I should receive an initial call from Twilio$/) do
 end
 
 Then(/^then be connected to phone number '\+(\d+)'$/) do |arg1|
-  binding.pry
+end
+
+Given(/^I click the "(.*?)" button$/) do |button_text|
+  click_button button_text
+end
+
+Then(/^I should be connected to the phone number '\+(\d+)' through the browser$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
 end

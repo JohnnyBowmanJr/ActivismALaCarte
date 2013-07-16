@@ -3,8 +3,9 @@ Activist::Application.configure do
   FACEBOOK_APP_SECRET = '9b69b0cf2dc70ca931fb2646aff4f7dc'
   ACCOUNT_SID = 'AC3ecb799e792404580fe5e903b88d3929'
   AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
+  APP_SID = 'AP123f795b7efddfd958bde327bc295def'
   DEFAULT_CLIENT = 'johnny'
-  TWILIO_APP_URL = 'http://3et2.localtunnel.com/'
+  TWILIO_APP_URL = 'http://3xxt.localtunnel.com/'
   # Settings specified here will take precedence over those in config/application.rb
 
   #allows devise to send emails in dev environment

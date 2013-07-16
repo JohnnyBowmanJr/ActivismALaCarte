@@ -22,32 +22,46 @@ describe CampaignsController do
     end 
   end
 
-  describe 'initiating a call action' do
-
-    it 'should POST to #voice and render XML instructions for Twilio' do
-      params = { :PhoneNumber => @campaign.phone_number, :campaign_id => @campaign.id, :user_id => @campaign.organizer_id}
-      post 'voice', params
+  describe "Twilio's Connect API" do
+      
+    it 'should render XML instructions for Twilio' do
+      receive_browser_call_params = {"AccountSid"=>"AC3ecb799e792404580fe5e903b88d3929",
+        "ApplicationSid"=>"AP123f795b7efddfd958bde327bc295def",
+        "Caller"=>"client:johnny",
+        "CallStatus"=>"ringing",
+        "Called"=>"",
+        "To"=>"",
+        "user_id"=>"undefined",
+        "CallSid"=>"CA06c78eb8547264d1f512b79c2749f0f9",
+        "campaign_id"=>"3",
+        "From"=>"client:johnny",
+        "Direction"=>"inbound",
+        "ApiVersion"=>"2010-04-01",
+        "action"=>"receive_browser_call",
+        "controller"=>"campaigns"
+      }
+      post 'receive_browser_call', receive_browser_call_params
       expect(Call.count).to eq(1)
-      expect(response).to be_success
+      expect(response).to eq('<?xml version="1.0" encoding="UTF-8"?><Response><Say voice="woman">Please hold while we connect your call. This call may be recorded for quality assurance</Say><Dial record="false"><Number>+13105929048</Number></Dial></Response>')
     end
 
-    it 'should callback to campaigns#callback and save a new call' do
-      params = {"AccountSid"=>"AC3ecb799e792404580fe5e903b88d3929",
-       "ApplicationSid"=>"APc47ff3822652f09502959b08335d24a7",
-       "Caller"=>"client:johnny",
-       "CallStatus"=>"completed",
-       "Duration"=>"1",
-       "Called"=>"",
-       "To"=>"",
-       "CallDuration"=>"20",
-       "CallSid"=>"CA8d2f5d4c42986b27da60ffe1846a8c9b",
-       "From"=>"client:johnny",
-       "Direction"=>"inbound",
-       "ApiVersion"=>"2010-04-01",
-       "action"=>"callback",
-       "controller"=>"campaigns"}
+    it 'should callback to campaigns#callback and save recording info call' do
+      callback_params = {"AccountSid"=>"AC3ecb799e792404580fe5e903b88d3929",
+        "ApplicationSid"=>"AP123f795b7efddfd958bde327bc295def",
+        "Caller"=>"client:johnny",
+        "CallStatus"=>"completed",
+        "Duration"=>"1",
+        "Called"=>"",
+        "To"=>"",
+        "CallDuration"=>"42",
+        "CallSid"=>"CA07b2de807d1f5cb049b61fb4a4d776c3",
+        "From"=>"client:johnny",
+        "Direction"=>"inbound",
+        "ApiVersion"=>"2010-04-01",
+        "action"=>"callback",
+        "controller"=>"campaigns"}
       #call = Call.make!(:twilio_id => params["CallSid"])
-      post 'callback', params
+      post 'callback', callback_params
       Call.any_instance.stubs(:get_recording_info).with(:twilio_id, :params[:CallDuration]).returns(Call.make!)
       #Twilio::REST::Call.any_instance.stubs(:recordings).returns(r)
       post 'callback', params

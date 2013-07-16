@@ -11,7 +11,7 @@ Activist::Application.configure do
   AUTH_TOKEN = 'fa4e593e6e396ecbac9d3fd33eba7b2f'
 
   DEFAULT_CLIENT = 'johnny'
-  TWILIO_APP_URL = 'http://3et2.localtunnel.com/'
+  TWILIO_APP_URL = 'http://3xxt.localtunnel.com/'
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

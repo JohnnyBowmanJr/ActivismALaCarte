@@ -5,7 +5,7 @@ app.views.CallView = Backbone.View.extend({
   template: JST['templates/call'],
   events: {
     'click a#phone-instead' : 'showPhone',
-    'click button.hangup' : 'hangup',
+    'click button#hangup' : 'hangup',
     'click button#call' : 'call'
   },
 
@@ -20,7 +20,7 @@ app.views.CallView = Backbone.View.extend({
     });
     /* Report any errors on the screen */
     Twilio.Device.error(function (error) {
-        $("#log").html("<p>'Error: '' + error.message</p>");
+        $("#log").html("<p>Error:  " + error.message + "</p>");
     });
     Twilio.Device.connect(function (conn) {
         $("#log").html("<p>Successfully established call</p>");
@@ -55,23 +55,35 @@ app.views.CallView = Backbone.View.extend({
     //this should be getting the campaign id through jquery grabbing a data attribute in the dom
     var userNumber = $('input#phone-field').val();
     var campaign_id = window.location.pathname.split('/').pop();
-    var call = new app.models.Call({
-      campaign_id: campaign_id,
-      phone_number: userNumber
-    });
-
+    var call = new app.models.Call({ campaign_id: campaign_id });
+    var userSession = new app.models.UserSession();
 
     //on clicking submit, check to see if call is through Twilio connect or REST API
     //then either do call.save or call.fetch (or something else)
-    call.save({},{
-      success: function(caller_id) {
-        var view = new app.views.ValidationView({
-          validation_code: caller_id.attributes.validation_code,
-          phone_number: caller_id.attributes.phone_number
-        });
+    userSession.fetch({
+      success: function(user){
+        if(user.id === "not logged in"){
+          $('#sign-in-modal').foundation('reveal', 'open');
+        }else{
+          if(userNumber === ""){
+            callInfo = {"campaign_id": campaign_id, "user_id": user.id };
+            Twilio.Device.connect(callInfo);
+            $('button#call').toggle();
+            $('button#hangup').css("display", "block");
+          }else{
+            call.save({ phone_number: userNumber },{
+              success: function(caller_id) {
+                var view = new app.views.ValidationView({
+                  validation_code: caller_id.attributes.validation_code,
+                  phone_number: caller_id.attributes.phone_number
+                });
 
-        $('#validation').html(view.render().el);
-        $('#validation').foundation('reveal', 'open');
+                $('#validation').html(view.render().el);
+                $('#validation').foundation('reveal', 'open');
+              }
+            });
+          }
+        }
       }
     });
   },
@@ -79,8 +91,8 @@ app.views.CallView = Backbone.View.extend({
   /* A function to end a connection to Twilio. */
   hangup: function() {
     Twilio.Device.disconnectAll();
-    $('button.hangup').toggle();
-    $('button.call').toggle();
+    $('button#hangup').toggle();
+    $('button#call').toggle();
     var view = new app.views.NextStepsView();
     $('#next-steps').html(view.render().el);
     $('#next-steps').foundation('reveal', 'open');

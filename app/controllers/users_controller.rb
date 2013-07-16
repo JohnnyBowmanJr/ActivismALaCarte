@@ -18,4 +18,13 @@ class UsersController < ApplicationController
     render :json => campaigns
   end
 
+  def is_logged_in
+    user = User.new
+    if current_user
+      user.id = current_user.id
+    else
+      user.id = "not logged in"
+    end
+    render :json => user
+  end
 end

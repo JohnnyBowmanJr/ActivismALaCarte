@@ -101,14 +101,18 @@ describe CallsController do
     }
   end
 
-  it 'should make a successful POST request to calls#create' do
-    post 'create', {:campaign_id => @campaign.id.to_s, :phone_number => "+13108041305"}
-    expect(response).to be_success
-  end
+  describe "Twilio's RESTful API" do
 
-  it 'should make a successful POST request to calls#receive_inbound_call' do 
-    post 'receive_inbound_call', @twilio_params_to_voice
-    expect(response).to eq('<?xml version="1.0" encoding="UTF-8"?><Response><Say voice="woman">Please hold while we connect your call. This call may be recorded for quality assurance</Say><Dial record="false"><Number>+13105929048</Number></Dial></Response>')
+    it 'should make a successful POST request to calls#create' do
+      post 'create', {:campaign_id => @campaign.id.to_s, :phone_number => "+13108041305"}
+      expect(response).to be_success
+    end
+
+    it 'should make a successful POST request to calls#receive_inbound_call' do 
+      post 'receive_inbound_call', @twilio_params_to_voice
+      expect(response).to eq('<?xml version="1.0" encoding="UTF-8"?><Response><Say voice="woman">Please hold while we connect your call. This call may be recorded for quality assurance</Say><Dial record="false"><Number>+13105929048</Number></Dial></Response>')
+    end
+
   end
 
 end
