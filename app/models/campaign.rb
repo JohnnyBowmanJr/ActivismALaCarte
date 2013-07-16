@@ -1,4 +1,13 @@
 class Campaign < ActiveRecord::Base
+
+  #FriendlyID code- turn target_name and action into slug
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+
+  def title
+    "#{target_name} #{action}"
+  end
+
   include ActiveModel::Serializers::JSON
 
   attr_accessible :description, :image_url, :organizer_id, :title, :target_name, :phone_number
@@ -8,6 +17,7 @@ class Campaign < ActiveRecord::Base
   
   mount_uploader :image, CampaignImageUploader
   
+  # this should get optimized
   has_many :calls do
     def from_today
       where("calls.created_at > ? and calls.created_at < ?", Date.today, Date.tomorrow)
@@ -47,7 +57,7 @@ class Campaign < ActiveRecord::Base
     target_phone = Campaign.find(campaign_id).phone_number
     outbound_call = Twilio::TwiML::Response.new do |r|
       r.Say 'Please hold while we connect your call. This call may be recorded for quality assurance', :voice => 'woman'
-      r.Dial :callerId => "+13109075542", :record => true do |d|
+      r.Dial :callerId => "+13109075542", :record => false do |d|
         #change this for target_phone when target_phone format validation has been implemented
         d.Number '+13365753860'
       end

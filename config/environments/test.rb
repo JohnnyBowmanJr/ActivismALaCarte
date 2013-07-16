@@ -5,13 +5,15 @@ Activist::Application.configure do
   # Real account credentials
   # ACCOUNT_SID = 'AC3ecb799e792404580fe5e903b88d3929'
   # AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
+  # APP_SID = 'AP123f795b7efddfd958bde327bc295def'
 
   # Twilio's account credentials for testing
   ACCOUNT_SID = 'AC582454da60c53d2660fbff36042656e6'
   AUTH_TOKEN = 'fa4e593e6e396ecbac9d3fd33eba7b2f'
+  APP_SID = 'AP123f795b7efddfd958bde327bc295def'
 
   DEFAULT_CLIENT = 'johnny'
-  TWILIO_APP_URL = 'http://3xxt.localtunnel.com/'
+  TWILIO_APP_URL = 'http://3shz.localtunnel.com/'
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

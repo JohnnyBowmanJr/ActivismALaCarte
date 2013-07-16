@@ -22,22 +22,22 @@ class CampaignsController < ApplicationController
   end
 
   def get_token
+    campaign_id = Campaign.find(params[:id]).id 
     call = Call.new
-    call.twilio_token(params[:id])
+    call.twilio_token(campaign_id)
     render :json => call
   end
 
   # this post request to campaigns#voice runs when people click "call" and 
   # the Twilio.Device.connect(params); runs in call_view.js
   def receive_browser_call
-    campaign_id = params[:campaign_id]
+    campaign_id = Campaign.find(params[:campaign_id]).id 
     Call.create(:campaign_id => campaign_id, :user_id => params[:id], :twilio_id => params[:CallSid])
     outbound_call = Campaign.outbound_call_instructions(campaign_id)
     render :xml => outbound_call.text
   end
 
   def callback
-    binding.pry
     twilio_id = params[:CallSid]
     call = Call.where("twilio_id = ?", twilio_id).first
     call.get_recording_info(twilio_id, params[:CallDuration], params[:AnsweredBy])

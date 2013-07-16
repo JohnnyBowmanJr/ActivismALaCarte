@@ -13,12 +13,26 @@ class Call < ActiveRecord::Base
   #in users don't get an error when rendering show page. Instead user_id should append to DOM
   #on login screen through modal instead of being passed this way.
   def attributes
-    {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at, 'target_name' => target_name}
+    {'token' => token, 
+      'campaign_id' => campaign_id, 
+      'id' => id, 
+      'user_id' => user_id, 
+      'number' => number, 
+      'created_at' => created_at, 
+      'target_name' => target_name
+    }
   end
 
   # def as_json(options={})
-  #   {'token' => token, 'campaign_id' => campaign_id, 'id' => id, 'user_id' => user_id, 'number' => number, 'created_at' => created_at, 'target_name' => target_name}
-
+  #   {'token' => token, 
+  #     'campaign_id' => campaign_id, 
+  #     'id' => id, 
+  #     'user_id' => user_id, 
+  #     'number' => number, 
+  #     'created_at' => created_at, 
+  #     'target_name' => target_name
+  #   }
+  # end
   # this is hit from CallsController#create to make initial phone call to user before connecting them
   def self.make_inbound_call(caller_phone, campaign_id)
     client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
@@ -47,6 +61,8 @@ class Call < ActiveRecord::Base
 
   def twilio_token(id)
     self.campaign_id = id
+    # if we changed the Call model so that it had a slug instead of a Campaign.id in its table
+    # we could avoid doing the Campaign.find in campaigns#get_token. Not sure if that's best practice through
     self.target_name = self.campaign.target_name
     capability = Twilio::Util::Capability.new ACCOUNT_SID, AUTH_TOKEN
     capability.allow_client_outgoing APP_SID

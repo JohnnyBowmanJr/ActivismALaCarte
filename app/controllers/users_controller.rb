@@ -27,4 +27,5 @@ class UsersController < ApplicationController
     end
     render :json => user
   end
+
 end

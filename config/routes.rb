@@ -15,6 +15,9 @@ Activist::Application.routes.draw do
       end
     end
   end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   resources :users do
     collection do
       get 'is_logged_in'
@@ -25,8 +28,6 @@ Activist::Application.routes.draw do
   match 'mycampaigns/recordings' => 'users#my_recordings', :as => :myrecordings
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
   match '/users/my_recordings_list' => 'users#my_recordings_list', :as => :my_recordings_list
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
   # The priority is based upon order of creation:

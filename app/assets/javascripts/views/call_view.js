@@ -54,7 +54,7 @@ app.views.CallView = Backbone.View.extend({
     // GET call data from /campaigns/:id/calls, including user_id, campaign_id and campaign_phone number
     //this should be getting the campaign id through jquery grabbing a data attribute in the dom
     var userNumber = $('input#phone-field').val();
-    var campaign_id = window.location.pathname.split('/').pop();
+    var campaign_id = $(".campaign-show-page").data("campaignid");
     var call = new app.models.Call({ campaign_id: campaign_id });
     var userSession = new app.models.UserSession();
 
@@ -73,6 +73,7 @@ app.views.CallView = Backbone.View.extend({
           }else{
             call.save({ phone_number: userNumber },{
               success: function(caller_id) {
+                $("#log").html("<p>Calling your phone now...</p>");
                 var view = new app.views.ValidationView({
                   validation_code: caller_id.attributes.validation_code,
                   phone_number: caller_id.attributes.phone_number
