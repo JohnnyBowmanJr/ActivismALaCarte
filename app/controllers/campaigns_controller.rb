@@ -22,9 +22,13 @@ class CampaignsController < ApplicationController
   end
 
   def get_token
+    # if we changed the Call model so that it had a slug instead of a Campaign.id in its table
+    # we could avoid doing the Campaign.find here. Not sure if that's best practice through
     campaign_id = Campaign.find(params[:id]).id 
     call = Call.new
-    call.twilio_token(campaign_id)
+    call.campaign_id = campaign_id
+    call.target_name = call.campaign.target_name
+    call.twilio_token
     render :json => call
   end
 

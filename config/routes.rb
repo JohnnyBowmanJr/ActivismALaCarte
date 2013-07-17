@@ -21,13 +21,14 @@ Activist::Application.routes.draw do
   resources :users do
     collection do
       get 'is_logged_in'
+      get 'my_recordings_list'
     end
   end
 
-  match 'mycampaigns' => 'users#mycampaigns', :as => :mycampaigns
+  get 'mycampaigns' => 'users#mycampaigns', :as => :mycampaigns
   match 'mycampaigns/recordings' => 'users#my_recordings', :as => :myrecordings
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
-  match '/users/my_recordings_list' => 'users#my_recordings_list', :as => :my_recordings_list
+  
 
 
   # The priority is based upon order of creation:

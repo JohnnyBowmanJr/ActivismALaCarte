@@ -62,7 +62,7 @@ app.views.CallView = Backbone.View.extend({
     //then either do call.save or call.fetch (or something else)
     userSession.fetch({
       success: function(user){
-        if(user.id === "not logged in"){
+        if(user.id === 0){
           $('#sign-in-modal').foundation('reveal', 'open');
         }else{
           if(userNumber === ""){

@@ -39,11 +39,7 @@ class Call < ActiveRecord::Base
     self.save
   end
 
-  def twilio_token(id)
-    self.campaign_id = id
-    # if we changed the Call model so that it had a slug instead of a Campaign.id in its table
-    # we could avoid doing the Campaign.find in campaigns#get_token. Not sure if that's best practice through
-    self.target_name = self.campaign.target_name
+  def twilio_token
     capability = Twilio::Util::Capability.new ACCOUNT_SID, AUTH_TOKEN
     capability.allow_client_outgoing APP_SID
     capability.allow_client_incoming DEFAULT_CLIENT

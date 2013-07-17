@@ -6,24 +6,23 @@ class UsersController < ApplicationController
     render :mycampaigns
   end
 
+  # this gets called on myRecordingsList.fetch() in Router.js in order to render the
+  # charts for each campaign in /mycampaigns
   def my_recordings_list
     campaigns = current_user.organized_campaigns
     Campaign.calls_per_day(campaigns)
     render :json => campaigns
   end
 
-  # this is the route for the MyRecordingList collection in backbone
-  def my_recordings
-    campaigns = current_user.organized_campaigns
-    render :json => campaigns
-  end
-
+  # checks to see if user is logged in when user clicks "Call" button.
+  # if so, returns user's id via JSON
   def is_logged_in
     user = User.new
     if current_user
       user.id = current_user.id
     else
-      user.id = "not logged in"
+      # must put integer here, string not allowed
+      user.id = 0
     end
     render :json => user
   end
