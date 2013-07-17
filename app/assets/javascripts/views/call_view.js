@@ -85,6 +85,14 @@ app.views.CallView = Backbone.View.extend({
             });
           }
         }
+
+        // The adobe flash settings box that pops up upon hitting "call" is overridden
+        // by Foundation, making it appear a white box. This makes it visible again.
+        $("object#__connectionFlash__").parent("div").css("width", "231px");
+        $("object#__connectionFlash__").css("z-index", "999999");
+        $("object#__connectionFlash__").siblings("button").css({"display": "block", "margin": "0 auto .5em auto"});
+
+
       }
     });
   },
