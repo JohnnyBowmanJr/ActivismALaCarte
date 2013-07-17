@@ -8,14 +8,16 @@ class Campaign < ActiveRecord::Base
     "#{target_name} #{action}"
   end
 
-  include ActiveModel::Serializers::JSON
-
   attr_accessible :description, :image_url, :organizer_id, :title, :target_name, :phone_number
   attr_accessible :action, :start_date, :end_date, :image
 
   attr_accessor :today_calls, :one_day_calls, :two_days_calls, :three_days_calls, :four_days_calls, :five_days_calls
   
   mount_uploader :image, CampaignImageUploader
+  
+  has_many :users, :through => :calls
+  
+  belongs_to :organizer, :class_name => 'User', :foreign_key => :organizer_id 
   
   # this should get optimized
   has_many :calls do
@@ -43,14 +45,18 @@ class Campaign < ActiveRecord::Base
       where("calls.created_at > ? and calls.created_at < ?", Date.today - 5, Date.today - 4)
     end
   end
-  has_many :users, :through => :calls
   
-  belongs_to :organizer, :class_name => 'User', :foreign_key => :organizer_id
-
-  private 
-  
-  def attributes
-    {'action' => action, 'created_at' => created_at, 'end_date' => end_date, 'target_name' => target_name, 'calls' => calls, 'id' => id, 'today_calls' => today_calls, 'one_day_calls' => one_day_calls, 'two_days_calls' => two_days_calls, 'three_days_calls' => three_days_calls, 'four_days_calls' => four_days_calls, 'five_days_calls' => five_days_calls}
+  # this gets called from users#my_recordings_list and returns info for the 
+  # campaign call charts for /mycampaigns
+  def as_json(options={})
+    {'id' => id, 
+      'today_calls' => today_calls, 
+      'one_day_calls' => one_day_calls, 
+      'two_days_calls' => two_days_calls, 
+      'three_days_calls' => three_days_calls, 
+      'four_days_calls' => four_days_calls, 
+      'five_days_calls' => five_days_calls
+    }
   end
 
   def self.outbound_call_instructions(campaign_id)

@@ -7,8 +7,7 @@ class Call < ActiveRecord::Base
   belongs_to :user
   belongs_to :campaign
 
-  # I think only used for get_token, which right now just uses. target_name, token, and current_user.
-  # I can delete the other stuff
+  # This gets called in campaign#get_token
   def as_json(options={})
     { 'token' => token, 'target_name' => target_name }
   end
