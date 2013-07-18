@@ -35,6 +35,7 @@ class CampaignsController < ApplicationController
   # this post request to campaigns#voice runs when people click "call" and 
   # the Twilio.Device.connect(params); runs in call_view.js
   def receive_browser_call
+    # do I need to put .id at the end? Might have mistakenly done that when configuring for friendlyID
     campaign_id = Campaign.find(params[:campaign_id]).id 
     Call.create(:campaign_id => campaign_id, :user_id => params[:id], :twilio_id => params[:CallSid])
     outbound_call = Campaign.outbound_call_instructions(campaign_id)
@@ -57,6 +58,7 @@ class CampaignsController < ApplicationController
   def create
     campaign = Campaign.new(params[:campaign])
     campaign.organizer_id = current_user.id
+    campaign.title = campaign.target_name + " " + campaign.action
     campaign.save!
     redirect_to campaign_path(campaign)
   end

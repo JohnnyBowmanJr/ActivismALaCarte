@@ -3,15 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background: rgb(247,247,247); /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(247,247,247,1) 17%, rgba(237,226,215,1) 60%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(17%,rgba(247,247,247,1)), color-stop(60%,rgba(237,226,215,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(237,226,215,1) 60%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(237,226,215,1) 60%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, rgba(247,247,247,1) 17%,rgba(237,226,215,1) 60%); /* IE10+ */
-  background: linear-gradient(to bottom, rgba(247,247,247,1) 17%,rgba(237,226,215,1) 60%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ede2d7',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, rgba(244,244,244,1) 0%, rgba(244,244,244,0.9) 16%, rgba(255,210,165,0.35) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,244,1)), color-stop(16%,rgba(244,244,244,0.9)), color-stop(100%,rgba(255,210,165,0.35))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(244,244,244,0.9) 16%,rgba(255,210,165,0.35) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(244,244,244,0.9) 16%,rgba(255,210,165,0.35) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(244,244,244,1) 0%,rgba(244,244,244,0.9) 16%,rgba(255,210,165,0.35) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(244,244,244,1) 0%,rgba(244,244,244,0.9) 16%,rgba(255,210,165,0.35) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#59ffd2a5',GradientType=0 ); /* IE6-9 */
 }
+
 
 //Navigation bar
 

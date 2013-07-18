@@ -57,6 +57,22 @@ div.sort-options{
 .campaign-show-page {
   background-color: #f7f7f7;
   padding-bottom: 7em;
+  #share-plea{
+    text-align: center;
+    padding: .5em;
+    border: solid 1px darken(rgba(255,210,165,0.35), 50%);
+    margin-bottom: 2em;
+    background-color: rgba(255,210,165,0.35);
+    h3{
+      width: 50%;
+      display: block;
+      margin: 0 auto 0 auto;
+      background-color: darken(rgba(255,210,165,0.35), 20%);
+      border: solid 1px darken(rgba(255,210,165,0.35), 30%);
+    }
+  }
+
+
   img {
     width: 100%;
     margin-bottom: 1em;

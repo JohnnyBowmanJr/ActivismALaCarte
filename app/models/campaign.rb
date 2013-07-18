@@ -4,10 +4,6 @@ class Campaign < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  def title
-    "#{target_name} #{action}"
-  end
-
   attr_accessible :description, :image_url, :organizer_id, :title, :target_name, :phone_number
   attr_accessible :action, :start_date, :end_date, :image
 
