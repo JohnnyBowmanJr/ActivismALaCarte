@@ -20,7 +20,6 @@ gem "aws-s3", "~> 0.6.3"
 gem "fog", "~> 1.11.1"
 gem "parsley-rails"
 gem "friendly_id", "~> 4.0.9"
-gem 'rails_admin'
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'
