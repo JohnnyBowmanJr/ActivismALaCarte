@@ -36,6 +36,7 @@ app.views.CallView = Backbone.View.extend({
       // accept the incoming connection and start two-way audio
       conn.accept();
     });
+
     return this;
   },
 
@@ -65,7 +66,8 @@ app.views.CallView = Backbone.View.extend({
         if(user.id === 0){
           $('#sign-in-modal').foundation('reveal', 'open');
         }else{
-          if(userNumber === ""){
+            mixpanel.track("Call made");
+            if(userNumber === ""){
             callInfo = {"campaign_id": campaign_id, "user_id": user.id };
             Twilio.Device.connect(callInfo);
             $('button#call').toggle();

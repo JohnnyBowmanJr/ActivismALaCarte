@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718002649) do
+ActiveRecord::Schema.define(:version => 20130718014004) do
 
   create_table "calls", :force => true do |t|
     t.integer  "user_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20130718002649) do
     t.string   "slug"
   end
 
-  add_index "campaigns", ["slug"], :name => "index_campaigns_on_slug"
+  add_index "campaigns", ["slug"], :name => "index_campaigns_on_slug", :unique => true
 
   create_table "links", :force => true do |t|
     t.string   "key"
@@ -49,7 +49,10 @@ ActiveRecord::Schema.define(:version => 20130718002649) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "campaign_id"
   end
+
+  add_index "links", ["key"], :name => "index_links_on_key", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

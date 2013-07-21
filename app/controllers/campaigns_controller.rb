@@ -2,14 +2,14 @@ class CampaignsController < ApplicationController
 
   def index
     case params[:order]
-    when "popularity"
-      @campaigns = Campaign.find(:all, :include => 'calls')
-      @campaigns = @campaigns.sort { |a,b| b.calls.count <=> a.calls.count }
-
-    when "most_recent"
-      @campaigns = Campaign.find(:all, :order => :created_at, :limit => 9).reverse
+    when 'popularity'
+      Campaign.find_in_batches(:include => :calls, :batch_size => 500) do |campaign_batch|
+        @campaigns = campaign_batch.sort { |a,b| b.calls.count <=> a.calls.count }
+      end
+    when 'most_recent'
+      @campaigns = Campaign.order('created_at').limit(9).reverse
     else
-      @campaigns = Campaign.find(:all, :order => :created_at, :limit => 9)
+      @campaigns = Campaign.order('created_at').limit(9)
     end
     render :index
   end
@@ -18,7 +18,17 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @title = @campaign.target_name + ": " + @campaign.action
     @backbone = true
+    if current_user
+      share_link = Link.new
+      share_link.generate_short_code(@campaign, current_user)
+      @short_code = share_link.key
+    end
     render :show
+  end
+
+  def key_redirect
+    link = Link.find_by_key!(params[:short_code])
+    redirect_to campaign_path(link.campaign)
   end
 
   def get_token

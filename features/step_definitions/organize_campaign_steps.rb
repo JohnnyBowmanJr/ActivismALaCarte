@@ -2,7 +2,6 @@ Given(/^I am already logged in as "(.*?)"$/) do |email|
   User.create(:email => email, :password => "password", :password_confirmation => "password")
   visit destroy_user_session_path
   visit '/'
-  save_and_open_page
   click_link('Login')
   fill_in 'sign-in-email', :with => email 
   fill_in 'sign-in-password', :with => "password"

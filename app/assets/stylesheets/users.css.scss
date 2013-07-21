@@ -50,13 +50,35 @@ nav.top-bar{
 
 .push{
   border-top: solid 1px #ccc;
+  margin-top: 50px;
 }
 
 footer {
   background: whitesmoke;
   font-size: .9em;
   color: #3f3f3f;
+  margin-bottom: -50px;
+
 }
+
+//* {
+//  margin: 0;
+//}
+//html, body {
+//  height: 100%;
+//}
+//.content {
+//  min-height: 100%;
+//  height: auto !important;
+//  height: 100%;
+//  margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+//}
+//.footer, .push {
+//  background: whitesmoke;
+//  font-size: .9em;
+//  color: #3f3f3f;
+//  height: 142px; /* .push must be the same height as .footer */
+//}
 
 // Sign-in and sign-up modals
 

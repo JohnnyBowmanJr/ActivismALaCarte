@@ -27,7 +27,7 @@ Scenario: Making a campaign call by typing a phone number
   Then I should receive an initial call from Twilio
   And then be connected to phone number '+15555555555'
 
-@javascript @wip @api
+@javascript @api
 Scenario: Making a campaign call by clicking on the call button without typing in a phone number
   Given I am already logged in as "user@email.com"
   And I am on the show page for campaign with target "Barack Obama" 

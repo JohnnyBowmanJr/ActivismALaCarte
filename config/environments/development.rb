@@ -6,6 +6,7 @@ Activist::Application.configure do
   APP_SID = 'AP123f795b7efddfd958bde327bc295def'
   DEFAULT_CLIENT = 'johnny'
   TWILIO_APP_URL = 'http://4k2y.localtunnel.com/'
+  APP_ROOT_URL = 'http://localhost:3000/'
   # Settings specified here will take precedence over those in config/application.rb
 
   #allows devise to send emails in dev environment
