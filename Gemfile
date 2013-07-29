@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
-
+ruby "1.9.3"
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'thin'
 gem 'devise'
 gem 'twilio-ruby'
 gem 'jquery-rails'
@@ -20,6 +19,7 @@ gem "aws-s3", "~> 0.6.3"
 gem "fog", "~> 1.11.1"
 gem "parsley-rails"
 gem "friendly_id", "~> 4.0.9"
+
 
 group :test do
   gem 'machinist', '>= 2.0.0.beta2'

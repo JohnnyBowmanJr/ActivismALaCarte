@@ -18,11 +18,13 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @title = @campaign.target_name + ": " + @campaign.action
     @backbone = true
-    if current_user
+    if current_user.links.where(:campaign_id => @campaign.id).any? 
+      @short_code = current_user.links.where(:campaign_id => @campaign.id).first.key  
+    elsif current_user
       share_link = Link.new
       share_link.generate_short_code(@campaign, current_user)
       @short_code = share_link.key
-    end
+    end    
     render :show
   end
 
