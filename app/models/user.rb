@@ -15,9 +15,13 @@ class User < ActiveRecord::Base
   has_many :users, :through => :organized_campaigns, :source => :organizer
 
   # currently this isn't working. Does campaign need to belong_to 
-  has_many :organized_calls, :class_name => "Call", :through => :organized_campaigns, :source => :organizer
+  has_many :organized_calls, :class_name => 'Call', :through => :organized_campaigns, :source => :organizer
 
-  has_many :links
+  has_many :shared_links, :class_name => 'Sharelink', :foreign_key => :referrer_id
+  
+  has_many :referrals, :foreign_key => :clicker_id
+  has_many :referred_links, :class_name => 'Sharelink', :through => :referrals, :source => :clicker
+
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first

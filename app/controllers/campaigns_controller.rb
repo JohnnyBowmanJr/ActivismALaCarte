@@ -18,19 +18,26 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @title = @campaign.target_name + ": " + @campaign.action
     @backbone = true
-    if current_user.links.where(:campaign_id => @campaign.id).any? 
-      @short_code = current_user.links.where(:campaign_id => @campaign.id).first.key  
-    elsif current_user
-      share_link = Link.new
-      share_link.generate_short_code(@campaign, current_user)
-      @short_code = share_link.key
-    end    
+    if current_user
+      if current_user.shared_links.where('campaign_id = ?', @campaign.id).any? 
+        @short_code = current_user.shared_links.where(:campaign_id => @campaign.id).first.short_key  
+      else
+        share_link = Sharelink.new
+        share_link.generate_short_code(@campaign, current_user)
+        @short_code = share_link.short_key
+      end
+    end
+    binding.pry    
     render :show
   end
 
   def key_redirect
-    link = Link.find_by_key!(params[:short_code])
-    redirect_to campaign_path(link.campaign)
+    share_link = Sharelink.find_by_short_key!(params[:short_code])
+    cookies.signed[:referrer_id] = {
+       :value => share_link.referrer_id,
+       :expires => 1.day.from_now,
+    }
+    redirect_to campaign_path(share_link.campaign)
   end
 
   def get_token
@@ -47,8 +54,8 @@ class CampaignsController < ApplicationController
   # this post request to campaigns#voice runs when people click "call" and 
   # the Twilio.Device.connect(params); runs in call_view.js
   def receive_browser_call
-    # do I need to put .id at the end? Might have mistakenly done that when configuring for friendlyID
-    campaign_id = Campaign.find(params[:campaign_id]).id 
+    campaign_id = params[:campaign_id].to_i
+    Sharelink.add_clicker(campaign_id, session[:referrer_id], current_user) if session[:referrer_id]
     Call.create(:campaign_id => campaign_id, :user_id => params[:id], :twilio_id => params[:CallSid])
     outbound_call = Campaign.outbound_call_instructions(campaign_id)
     render :xml => outbound_call.text
@@ -56,9 +63,9 @@ class CampaignsController < ApplicationController
 
   def callback
     twilio_id = params[:CallSid]
-    call = Call.where("twilio_id = ?", twilio_id).first
+    call = Call.where('twilio_id = ?', twilio_id).first
     call.get_recording_info(twilio_id, params[:CallDuration], params[:AnsweredBy])
-    render :json => "callback success"
+    render :json => 'callback success'
   end
 
 

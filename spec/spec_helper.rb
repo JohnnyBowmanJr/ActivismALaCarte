@@ -11,10 +11,12 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
-  
+
   config.mock_framework = :mocha
   
   config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+  
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

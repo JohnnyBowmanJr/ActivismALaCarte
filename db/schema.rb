@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718014004) do
+ActiveRecord::Schema.define(:version => 20130810020456) do
 
   create_table "calls", :force => true do |t|
     t.integer  "user_id"
@@ -42,17 +42,23 @@ ActiveRecord::Schema.define(:version => 20130718014004) do
 
   add_index "campaigns", ["slug"], :name => "index_campaigns_on_slug", :unique => true
 
-  create_table "links", :force => true do |t|
-    t.string   "key"
-    t.string   "full_path"
-    t.integer  "click_total"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "campaign_id"
+  create_table "referrals", :force => true do |t|
+    t.integer  "clicker_id"
+    t.integer  "sharelink_id"
+    t.boolean  "call_conversion"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "links", ["key"], :name => "index_links_on_key", :unique => true
+  create_table "sharelinks", :force => true do |t|
+    t.string   "short_key",   :null => false
+    t.integer  "referrer_id", :null => false
+    t.integer  "campaign_id", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "sharelinks", ["short_key"], :name => "sharelinks_short_key_index", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -73,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130718014004) do
     t.string   "image_url"
     t.string   "image_url_small"
     t.string   "phone_number"
+    t.string   "zipcode"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -15,6 +15,8 @@ class Campaign < ActiveRecord::Base
   
   belongs_to :organizer, :class_name => 'User', :foreign_key => :organizer_id 
   
+  has_many :sharelinks
+  
   # this should get optimized
   has_many :calls do
     def from_today
