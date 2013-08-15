@@ -21,3 +21,9 @@
 //= require inlineplayer
 
 $(document).foundation();
+
+
+    console.log('here!!!!!!!!!!!!!!!!!!!!!!');
+    setTimeout(function() {
+        alert('here');
+    }, 100);

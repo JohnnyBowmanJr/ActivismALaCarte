@@ -7,6 +7,7 @@ Activist::Application.configure do
   DEFAULT_CLIENT = 'johnny'
   TWILIO_APP_URL = 'http://activ8.herokuapp.com/'
   APP_ROOT_URL = 'http://activ8.herokuapp/'
+  SUNLIGHT_API_KEY = '5fc4caa80a7e4d2c9d9d1ab63bc96c3c'
   # Settings specified here will take precedence over those in config/application.rb
 
   config.assets.precompile += %w( backbone.js )

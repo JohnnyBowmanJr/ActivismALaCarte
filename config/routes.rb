@@ -29,6 +29,7 @@ Activist::Application.routes.draw do
   match 'mycampaigns/recordings' => 'users#my_recordings', :as => :myrecordings
   match '/users/my_recording' => 'users#my_recording', :as => :myrecording
   get '/s/:short_code' => 'campaigns#key_redirect', :as => :key_redirect
+  get '/myrepresentatives' => 'users#my_representatives', :as => :myrepresentatives
   
 
 

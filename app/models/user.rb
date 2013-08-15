@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :access_token
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+  :provider, :uid, :name, :access_token, :zipcode
+  
   has_many :calls
   has_many :campaigns, :through => :calls
 

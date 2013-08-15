@@ -19,6 +19,7 @@ gem "aws-s3", "~> 0.6.3"
 gem "fog", "~> 1.11.1"
 gem "parsley-rails"
 gem "friendly_id", "~> 4.0.9"
+gem "httparty"
 
 
 group :test do

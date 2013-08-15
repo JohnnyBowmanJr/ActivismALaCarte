@@ -1,0 +1,11 @@
+<div class="my-representatives-page row">
+	<h3>Representatives for zipcode <%= current_user.zipcode %></h3>
+	<ul class="small-block-grid-4">
+	<% @representatives.each do |rep| %>
+		<li> 
+			<%= rep["chamber"].titleize %>
+			<%= "#{ rep["party"] }-#{ rep["state"] }" %> <br />
+			<%= "#{ rep["title"] }. #{ rep["first_name"] } #{ rep["last_name"] }" %> <br /><br />
+		</li>
+	<% end %>
+</div>

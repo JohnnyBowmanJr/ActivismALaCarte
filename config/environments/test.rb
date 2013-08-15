@@ -1,11 +1,6 @@
 Activist::Application.configure do
   FACEBOOK_APP_ID = '155124928007541'
   FACEBOOK_APP_SECRET = '9b69b0cf2dc70ca931fb2646aff4f7dc'
-  
-  # Real account credentials
-  # ACCOUNT_SID = 'AC3ecb799e792404580fe5e903b88d3929'
-  # AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
-  # APP_SID = 'AP123f795b7efddfd958bde327bc295def'
 
   # Twilio's account credentials for testing
   ACCOUNT_SID = 'AC582454da60c53d2660fbff36042656e6'
@@ -15,6 +10,7 @@ Activist::Application.configure do
   DEFAULT_CLIENT = 'johnny'
   TWILIO_APP_URL = 'http://3vwj.localtunnel.com/'
   APP_ROOT_URL = 'http://localhost:3000/'
+  SUNLIGHT_API_KEY = '5fc4caa80a7e4d2c9d9d1ab63bc96c3c'
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

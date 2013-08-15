@@ -27,4 +27,11 @@ class UsersController < ApplicationController
     render :json => user
   end
 
+  def my_representatives
+    sunlight_base_url = 'http://congress.api.sunlightfoundation.com/legislators/locate?zip='
+    zip = current_user.zipcode
+    response = HTTParty.get(sunlight_base_url + zip + '&apikey=' + SUNLIGHT_API_KEY)
+    @representatives = response["results"]
+    render :myrepresentatives
+  end
 end

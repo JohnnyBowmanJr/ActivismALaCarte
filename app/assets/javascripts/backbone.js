@@ -7,3 +7,4 @@
 //= require_tree ./templates
 //= require_tree ./views
 //= require init
+alert('ehllo');

@@ -26,8 +26,7 @@ class CampaignsController < ApplicationController
         share_link.generate_short_code(@campaign, current_user)
         @short_code = share_link.short_key
       end
-    end
-    binding.pry    
+    end   
     render :show
   end
 
