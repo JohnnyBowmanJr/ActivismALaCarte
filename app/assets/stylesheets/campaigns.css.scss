@@ -72,7 +72,6 @@ div.sort-options{
     }
   }
 
-
   img {
     width: 100%;
     margin-bottom: 1em;
@@ -161,7 +160,7 @@ div#next-steps{
   }
 }
 //overwrite Foundation's styling for the datepicker header, which
-//looks buggy out of the box.
+//looks buggy out of the box due to conflicting CSS.
 div#ui-datepicker-div{
   span.ui-icon-circle-triangle-e{
     margin-left: 10px;

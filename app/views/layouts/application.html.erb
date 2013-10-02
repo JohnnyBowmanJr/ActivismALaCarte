@@ -22,7 +22,7 @@
     <%= yield %>
   </section>
   <%= render :partial => 'layouts/footer' %>
-  
+  <%= javascript_include_tag "mycampaigns" if @mycampaigns %>
   <%= javascript_include_tag "backbone" if @backbone %>
 </body>
 

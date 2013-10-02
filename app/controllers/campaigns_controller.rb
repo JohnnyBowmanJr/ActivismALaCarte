@@ -30,6 +30,9 @@ class CampaignsController < ApplicationController
     render :show
   end
 
+  # this is hit when users go to '/s/J31js' or some other shortcode
+  # this finds what campaign the shortcode corresponds to and redirects to that campaign's page
+  # it also creates a cookie so that referrer can get credited for referring someone to the page
   def key_redirect
     share_link = Sharelink.find_by_short_key!(params[:short_code])
     cookies.signed[:referrer_id] = {
@@ -39,7 +42,10 @@ class CampaignsController < ApplicationController
     redirect_to campaign_path(share_link.campaign)
   end
 
-  def get_token
+  # this gets hit from router.js (Backbone file) when users go to the campaign show page.
+  # It gets the call's info (id, name of person getting called etc) and calls call.twilio_token
+  # which grabs a Twilio token to enable the phone call feature. 
+  def get_call_info
     # if we changed the Call model so that it had a slug instead of a Campaign.id in its table
     # we could avoid doing the Campaign.find here. Not sure if that's best practice through
     campaign_id = Campaign.find(params[:id]).id 

@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// this is to correct the styling of the Adobe Flash Microphone settigs pop up that occurs in 
+// Firefox when the app tries to access the user's microphone when users hit the "call" button
 object#__connectionFlash__ {
 	height: 138px !important;
 	max-width: none;

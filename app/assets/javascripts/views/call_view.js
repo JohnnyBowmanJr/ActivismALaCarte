@@ -36,7 +36,7 @@ app.views.CallView = Backbone.View.extend({
       // accept the incoming connection and start two-way audio
       conn.accept();
     });
-
+    alert("hello");
     return this;
   },
 

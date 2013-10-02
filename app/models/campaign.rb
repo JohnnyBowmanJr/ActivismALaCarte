@@ -17,7 +17,9 @@ class Campaign < ActiveRecord::Base
   
   has_many :sharelinks
   
-  # this should get optimized
+  # there's no way this is the right way to do this. This grabs all calls for a particular 
+  # campaign for a particular day in the last seven days so that it can be displayed on 
+  # /mycampaigns in charts. This gets called at campaigns#calls_per_day
   has_many :calls do
     def from_today
       where("calls.created_at > ? and calls.created_at < ?", Date.today, Date.tomorrow)

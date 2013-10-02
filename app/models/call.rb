@@ -28,6 +28,8 @@ class Call < ActiveRecord::Base
     inbound_call
   end
 
+  # this gets hit from campaigns#callback (aka after a user hangs up and Twilio 
+    # sends the callback request)
   def get_recording_info(twilio_id, call_duration, answered_by)
     self.duration = call_duration
     client = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
@@ -38,6 +40,7 @@ class Call < ActiveRecord::Base
     self.save
   end
 
+  # grabs Twilio token via Twilio API
   def twilio_token
     capability = Twilio::Util::Capability.new ACCOUNT_SID, AUTH_TOKEN
     capability.allow_client_outgoing APP_SID

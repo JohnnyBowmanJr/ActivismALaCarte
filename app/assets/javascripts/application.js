@@ -16,8 +16,5 @@
 //= require parsley
 //= require foundation
 //= require underscore-min
-//= require soundmanager2
-//= require moment.js
-//= require inlineplayer
 
 $(document).foundation();

@@ -6,9 +6,9 @@ app.Router = Backbone.Router.extend({
   },
 
   callShow: function(campaign_id) {
-    var token = new app.models.Campaign({ campaign_id : campaign_id});
-    token.url = '/campaigns/' + campaign_id + '/get_token';
-    token.fetch({
+    var callInfo = new app.models.Campaign({ campaign_id : campaign_id});
+    callInfo.url = '/campaigns/' + campaign_id + '/get_call_info';
+    callInfo.fetch({
       success: function(call) {
         var view = new app.views.CallView({ model : call.attributes });
         $('#call-campaign-show').html(view.render().el);

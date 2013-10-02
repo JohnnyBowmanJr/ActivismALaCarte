@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def mycampaigns
     @backbone = true
+    @mycampaigns = true
     @user_id = current_user.id
     @campaigns = current_user.organized_campaigns
     render :mycampaigns
