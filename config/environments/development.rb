@@ -5,7 +5,7 @@ Activist::Application.configure do
   AUTH_TOKEN = 'd5ee548232ded22642dfe296d46df3af'
   APP_SID = 'AP123f795b7efddfd958bde327bc295def'
   DEFAULT_CLIENT = 'johnny'
-  TWILIO_APP_URL = 'http://3bfi.localtunnel.com'
+  TWILIO_APP_URL = 'http://3rr3.localtunnel.com'
   APP_ROOT_URL = 'http://localhost:3000/'
   SUNLIGHT_API_KEY = '5fc4caa80a7e4d2c9d9d1ab63bc96c3c'
 

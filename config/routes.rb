@@ -7,6 +7,7 @@ Activist::Application.routes.draw do
     end
     member do
       get 'get_call_info'
+      get 'get_token'
     end
     resources :calls do
       collection do

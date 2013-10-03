@@ -7,7 +7,7 @@ class Call < ActiveRecord::Base
   belongs_to :user
   belongs_to :campaign
 
-  # This gets called in campaign#get_token
+  # This gets called in campaigns_controller#get_call_info
   def as_json(options={})
     { 'token' => token, 'target_name' => target_name }
   end

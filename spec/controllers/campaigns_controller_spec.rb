@@ -9,7 +9,7 @@ describe CampaignsController do
   describe 'show page' do
 
     it "should retrieve a Twilio token before loading a call on the show page" do
-      get 'get_token', :id => @campaign
+      get 'get_call_info', :id => @campaign
       expect(response).to be_success
       call = JSON.parse(response.body)
       expect(call["token"].class).to eq(String)

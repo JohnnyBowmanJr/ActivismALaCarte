@@ -4,12 +4,12 @@
   <%= form_for(@campaign, :multipart => true, :html => {'data-validate' => "parsley"}) do |f| %>
    
     <div class= "field" >
-      <%= f.label :target_name, "Which public official should people call?"  %><br />
+      <%= f.label :target_name, "Which public official should people call?"  %>
       <%= f.text_field :target_name, :data => {:required => "true"}%>
     </div> 
 
     <div class="field">
-      <%= f.label :phone_number, "What is the official's public phone number?"  %><br />
+      <%= f.label :phone_number, "What is the official's public phone number?"  <%></%>
       <%= f.telephone_field :phone_number, :data => {:required => "true"} %>
     </div>
     

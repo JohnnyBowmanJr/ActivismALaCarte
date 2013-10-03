@@ -18,6 +18,8 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @title = @campaign.target_name + ": " + @campaign.action
     @backbone = true
+    # if the user is logged in, check to see if they've gotten a link to share for this campaign.
+    # if so, give them that link. If not, generate a new link 
     if current_user
       if current_user.shared_links.where('campaign_id = ?', @campaign.id).any? 
         @short_code = current_user.shared_links.where(:campaign_id => @campaign.id).first.short_key  
@@ -45,9 +47,8 @@ class CampaignsController < ApplicationController
   # this gets hit from router.js (Backbone file) when users go to the campaign show page.
   # It gets the call's info (id, name of person getting called etc) and calls call.twilio_token
   # which grabs a Twilio token to enable the phone call feature. 
-  def get_call_info
-    # if we changed the Call model so that it had a slug instead of a Campaign.id in its table
-    # we could avoid doing the Campaign.find here. Not sure if that's best practice through
+
+  def get_token
     campaign_id = Campaign.find(params[:id]).id 
     call = Call.new
     call.campaign_id = campaign_id
@@ -66,6 +67,7 @@ class CampaignsController < ApplicationController
     render :xml => outbound_call.text
   end
 
+  # when call is done, Twilio calls this asynchronously
   def callback
     twilio_id = params[:CallSid]
     call = Call.where('twilio_id = ?', twilio_id).first

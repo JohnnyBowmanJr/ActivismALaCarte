@@ -59,9 +59,8 @@ app.views.CallView = Backbone.View.extend({
     var call = new app.models.Call({ campaign_id: campaign_id });
     var userSession = new app.models.UserSession();
 
-    //on clicking submit, check to see if call is through Twilio connect or REST API
-    //then either do call.save or call.fetch (or something else)
-    userSession.fetch({
+    //on clicking call/submit, check to see if user is logged in. If so, check if 
+    // call is through Twilio connect or REST API then either do call.save or call.fetch
       success: function(user){
         if(user.id === 0){
           $('#sign-in-modal').foundation('reveal', 'open');
