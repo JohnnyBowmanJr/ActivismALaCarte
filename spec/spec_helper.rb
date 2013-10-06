@@ -1,6 +1,5 @@
-require 'simplecov'
-SimpleCov.start
-# This file is copied to spec/ when you run 'rails generate rspec:install'
+# require 'simplecov'
+# SimpleCov.start
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -13,10 +12,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 RSpec.configure do |config|
 
   config.mock_framework = :mocha
-  
+
   config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
-  
+
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -25,6 +24,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    puts @example.description
   end
 
   config.after(:each) do
