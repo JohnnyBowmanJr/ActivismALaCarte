@@ -17,8 +17,6 @@ development:
   encoding: unicode
   database: activist_development
   pool: 5
-  username: johnnybowman
-  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,16 +41,12 @@ test: &test
   encoding: unicode
   database: activist_test
   pool: 5
-  username: johnnybowman
-  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: activist_production
   pool: 5
-  username: johnnybowman
-  password:
 
 cucumber:
   <<: *test
